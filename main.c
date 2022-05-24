@@ -6,7 +6,7 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:02:31 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/05/24 17:43:02 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/05/24 17:53:40 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,15 @@
 
 int main(void)
 {
-    while (1)
-        printf( "%s\n", readline( "Minishell> " ) );
+    char s[20];
+    int i;
+
+    i = 0;
+    while (i < 3)
+    {
+        s = readline( "Minishell> " );
+        printf("%s", s);
+        i++;
+    }
     return (EXIT_SUCCESS);
 }
