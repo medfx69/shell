@@ -6,7 +6,7 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:02:31 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/05/24 17:53:40 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/05/24 18:15:30 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,19 @@
 
 int main(void)
 {
-    char s[20];
-    int i;
+    char *l;
 
-    i = 0;
-    while (i < 3)
+    while (1)
     {
-        s = readline( "Minishell> " );
-        printf("%s", s);
-        i++;
+        l = readline( "Minishell> " );
+        if (l[0] == ':' && l[1] == 'q')
+        {
+            free(l);
+            break ;
+        }
+        printf("%s\n", l);
+
+        free(l);
     }
     return (EXIT_SUCCESS);
 }
