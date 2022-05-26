@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   exec.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/24 17:02:31 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/05/25 20:16:28 by mboukhal         ###   ########.fr       */
+/*   Created: 2022/05/25 10:55:35 by mboukhal          #+#    #+#             */
+/*   Updated: 2022/05/25 11:10:27 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int main(int ac, char **av, char **env)
+int ft_exec(char **cmd, char **env)
 {
-    char *cmd;
-    (void)ac;
-    (void)av;
-    // int i;
+    // char    *path = NULL;
+    int     i;
+    (void) cmd;
 
-    while (1)
-    {
-        cmd = readline( "Minishell> " );
-        if (cmd[0])
-        {
-            add_history(cmd);
-            ft_start(cmd, env);
-        }
-        if (cmd[0] == 'c' && cmd[1] == 'x')
-            clear_history();
-        free(cmd);
-    }
-    return (EXIT_SUCCESS);
+    i = 0;
+    while (env[i][0] != 'P' && env[i][1] != 'A' &&
+        env[i][2] != 'T' &&env[i][3] != 'H')
+        i++;
+    printf("|%s|\n", env[i]);
+    return (0);
+    // execve(cmd[0], cmd, path);
 }

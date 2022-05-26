@@ -1,35 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   start.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/24 17:02:31 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/05/25 20:16:28 by mboukhal         ###   ########.fr       */
+/*   Created: 2022/05/25 19:02:55 by mboukhal          #+#    #+#             */
+/*   Updated: 2022/05/25 19:08:09 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int main(int ac, char **av, char **env)
+void    ft_start(char *cmd, char **env)
 {
-    char *cmd;
-    (void)ac;
-    (void)av;
-    // int i;
+    (void) env;
+    printf("|%s|\n", cmd);
 
-    while (1)
-    {
-        cmd = readline( "Minishell> " );
-        if (cmd[0])
-        {
-            add_history(cmd);
-            ft_start(cmd, env);
-        }
-        if (cmd[0] == 'c' && cmd[1] == 'x')
-            clear_history();
-        free(cmd);
-    }
-    return (EXIT_SUCCESS);
+    // ft_exec(cmd, env);
 }
