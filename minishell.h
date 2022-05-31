@@ -6,7 +6,7 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:02:51 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/05/25 20:10:53 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/05/31 11:51:59 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,15 @@
 # include <termios.h>
 # include <curses.h>
 # include <term.h>
+# include "utils/libft.h"
 
-
-int     ft_exec(char **cmd, char **env);
+/*
+    execution part:
+        exec():
+            resolvine exection "execve" "getenv"
+*/
+int     ft_exec(char *cmd);
 void    ft_start(char *cmd, char **env);
+void    ft_cd(char *dir);
 
 #endif // !MINISHELL_H
