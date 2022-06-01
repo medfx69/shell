@@ -6,7 +6,7 @@ FSANI			= -g -fsanitize=address ; echo "\t$(GREEN)fsanitize active$(NC)"
 
 
 CFILES			= ft_split.c ft_strlen.c ft_strncmp.c ft_putstr_fd.c 	\
-				 ft_putchar_fd.c ft_putendl_fd.c
+				 ft_putchar_fd.c ft_putendl_fd.c test.c
 
 PRINT			= 1
 

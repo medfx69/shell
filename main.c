@@ -6,7 +6,7 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:02:31 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/01 06:43:34 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/01 15:46:25 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,29 @@
 
 void loop(char *cmd)
 {
+    char **cmd_p;
+   int i = 0;
+
     while (1)
     {
         cmd = readline( "Minishell> " );
         if (cmd[0])
         {
             add_history(cmd);
-            ft_start(cmd);
+            cmd_p = pars(cmd);
+            // ft_start(cmd);
+            while (cmd_p[i])
+                free(cmd_p[i++]);
+            free(cmd_p);
         }
         if (cmd[0] == 'c' && cmd[1] == 'l')
             clear_history();
-        if (cmd[0] == 'q' && cmd[1] == 't')
+        if (cmd[0] == 'e' && cmd[1] == 'x'
+            && cmd[2] == 'i' && cmd[3] == 't')
+        {
+            free(cmd);
             break;
+        }
         free(cmd);
     }
 }
@@ -33,22 +44,24 @@ void loop(char *cmd)
 
 int main(void)
 {
-    char *cmd = NULL;
+    // char *cmd = NULL;
     char *line;
     // int i;
     // DIR *dp;
     // struct dirent *dirp;
 
-    // line = getenv("PATH");
-    // printf("%s\n\n\n\n", line);
 
-    // line = getcwd(NULL, 0);
-    // printf("|%s|\n", line);
-    // free(line);
+    // no need to be freed
+    line = getenv("\?");
+    printf("<%s>\n", line);
+
+    line = getcwd(NULL, 0);
+    printf("|%s|\n", line);
+    free(line);
     // chdir("../..");
     // ft_cd(NULL);
 
-    ft_exec("lss -l");
+    ft_exec("ls -l");
     
     // line = getcwd(NULL, 0);
     // printf("|%s|\n", line);
@@ -56,9 +69,6 @@ int main(void)
 
     // i = isatty(1);
     // printf("|%d|\n", i);
-    // int i = 0;
-    // while (env[i])
-    //     printf("|%s|\n", env[i++]);
     line = ttyname(1);
     printf("|%s|\n", line);
     free(line);
@@ -72,7 +82,9 @@ int main(void)
     // }
 
     // signal(SIGINT, read_line);
-    loop(cmd);
+    // loop(cmd);
+
+    // system("leaks minishell");
 
     return (EXIT_SUCCESS);
 }

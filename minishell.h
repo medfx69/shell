@@ -6,7 +6,7 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:02:51 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/01 06:43:03 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/01 16:22:42 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,7 @@
 int     ft_exec(char *cmd);
 void    ft_start(char *cmd);
 void    ft_cd(char *dir);
+char    **pars(char *cmd);
+void	end(void);
 
 #endif // !MINISHELL_H

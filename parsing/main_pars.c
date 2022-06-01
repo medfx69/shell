@@ -6,9 +6,17 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 11:34:43 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/05/31 11:35:07 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/01 13:38:31 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
+char    **pars(char *cmd)
+{
+    char **cmd_p;
+
+    cmd_p = ft_split(cmd, ';');
+
+    return cmd_p;
+}

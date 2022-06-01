@@ -6,7 +6,7 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 10:55:35 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/05/31 20:39:49 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/01 06:48:28 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char *ft_join_path(char *path, char *cmd)
     return (line);
 }
 
-static void free_it(char **s, char **ss)
+static void free_it(char **s, char **ss, char *line)
 {
     int i;
 
@@ -51,6 +51,7 @@ static void free_it(char **s, char **ss)
     while(ss[++i])
         free(ss[i]);
     free(ss);
+    free(line);
 }
 
 int ft_exec(char *cmd)
@@ -75,7 +76,7 @@ int ft_exec(char *cmd)
         ft_putstr_fd("minishell: command not found: ", 2);
         ft_putendl_fd(cmd_s[0], 2);
         // free splits
-        free_it(path_s, cmd_s);
+        free_it(path_s, cmd_s, line);
         return (0);
     }
 
@@ -90,7 +91,7 @@ int ft_exec(char *cmd)
 
     // printf("<|%s|>\n", line);
     // free splits
-    free_it(path_s, cmd_s);
+    free_it(path_s, cmd_s, line);
 
     // end free splits 
 
