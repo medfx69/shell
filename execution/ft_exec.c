@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exec.c                                             :+:      :+:    :+:   */
+/*   ft_exec.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 10:55:35 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/05/31 13:09:00 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/05/31 20:39:49 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,20 @@ char *ft_join_path(char *path, char *cmd)
     return (line);
 }
 
+static void free_it(char **s, char **ss)
+{
+    int i;
+
+    i = -1;
+    while(s[++i])
+        free(s[i]);
+    free(s);
+    i = -1;
+    while(ss[++i])
+        free(ss[i]);
+    free(ss);
+}
+
 int ft_exec(char *cmd)
 {
     char **path_s;
@@ -56,28 +70,28 @@ int ft_exec(char *cmd)
             break;
         free(line);
     }
-    if (!line)
-        return (0);
-
-    printf("<|%s|>\n", line);
-    int id = fork();
-    if (id == 0)
+    if (!path_s[i])
     {
-        
-        execve(line, cmd_s, NULL);
+        ft_putstr_fd("minishell: command not found: ", 2);
+        ft_putendl_fd(cmd_s[0], 2);
+        // free splits
+        free_it(path_s, cmd_s);
+        return (0);
     }
 
+    // printf("<|%s|>\n", line);
+    // int id = fork();
+    // if (id == 0)
+    // {
+        
+    //     execve(line, cmd_s, NULL);
+    // }
 
-    printf("<|%s|>\n", line);
+
+    // printf("<|%s|>\n", line);
     // free splits
-    i = -1;
-    while(path_s[++i])
-        free(path_s[i]);
-    free(path_s);
-    i = -1;
-    while(cmd_s[++i])
-        free(cmd_s[i]);
-    free(cmd_s);
+    free_it(path_s, cmd_s);
+
     // end free splits 
 
     return (0);

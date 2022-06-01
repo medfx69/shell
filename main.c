@@ -6,13 +6,13 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:02:31 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/05/31 13:39:28 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/01 06:43:34 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void loop(char *cmd, char **env)
+void loop(char *cmd)
 {
     while (1)
     {
@@ -20,7 +20,7 @@ void loop(char *cmd, char **env)
         if (cmd[0])
         {
             add_history(cmd);
-            ft_start(cmd, env);
+            ft_start(cmd);
         }
         if (cmd[0] == 'c' && cmd[1] == 'l')
             clear_history();
@@ -31,16 +31,13 @@ void loop(char *cmd, char **env)
 }
 
 
-int main(int ac, char **av, char **env)
+int main(void)
 {
     char *cmd = NULL;
     char *line;
-    (void)ac;
-    (void)av;
     // int i;
     // DIR *dp;
     // struct dirent *dirp;
-
 
     // line = getenv("PATH");
     // printf("%s\n\n\n\n", line);
@@ -51,7 +48,7 @@ int main(int ac, char **av, char **env)
     // chdir("../..");
     // ft_cd(NULL);
 
-    // ft_exec("ls -l");
+    ft_exec("lss -l");
     
     // line = getcwd(NULL, 0);
     // printf("|%s|\n", line);
@@ -59,7 +56,9 @@ int main(int ac, char **av, char **env)
 
     // i = isatty(1);
     // printf("|%d|\n", i);
-
+    // int i = 0;
+    // while (env[i])
+    //     printf("|%s|\n", env[i++]);
     line = ttyname(1);
     printf("|%s|\n", line);
     free(line);
@@ -73,7 +72,7 @@ int main(int ac, char **av, char **env)
     // }
 
     // signal(SIGINT, read_line);
-    loop(cmd, env);
+    loop(cmd);
 
     return (EXIT_SUCCESS);
 }

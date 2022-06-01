@@ -6,13 +6,13 @@
 #    By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/24 17:01:37 by mboukhal          #+#    #+#              #
-#    Updated: 2022/05/31 12:52:46 by mboukhal         ###   ########.fr        #
+#    Updated: 2022/05/31 19:35:17 by mboukhal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .DEFAULT_GOAL		= all
 NAME				= minishell
-CFILES				= main.c ft_start.c execution/cd/ft_cd.c execution/exec.c	\
+CFILES				= main.c ft_start.c execution/cd/ft_cd.c execution/ft_exec.c	\
 					 parsing/main_pars.c
 
 CFLAGS				= -Wall -Wextra -Werror
@@ -68,7 +68,7 @@ re: fclean all
 
 $(NAME): $(OBJS)
 	@ make PRINT=$(PRINT) -C utils
-	@ $(CC) $(CFLAGS) $(INCLUDE) -o $(NAME) $(OBJS) $(FSANI)
+	@ $(CC) $(CFLAGS) $(INCLUDE) -o $(NAME) $(OBJS) #$(FSANI)
 ifeq ($(PRINT), 1)
 	@ echo "$(PURPLE) ####### $(NAME) START ####### $(NCL)"
 	@ $(ECHO_ALL)

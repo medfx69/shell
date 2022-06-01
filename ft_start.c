@@ -6,15 +6,14 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 19:02:55 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/05/29 17:28:11 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/01 06:42:52 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void    ft_start(char *cmd, char **env)
+void    ft_start(char *cmd)
 {
-    (void) env;
     char **cmd_splited;
     int i;
 
