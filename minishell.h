@@ -6,7 +6,7 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:02:51 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/01 16:22:42 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/01 16:54:01 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # include <curses.h>
 # include <term.h>
 # include <errno.h>
+# include <limits.h>
 # include "utils/libft.h"
 
 /*
