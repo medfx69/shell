@@ -6,7 +6,7 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:02:31 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/03 11:14:59 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/03 11:31:55 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,23 +58,17 @@ void    cheak_exit_val(char *cmd)
 void loop(char *cmd)
 {
     char **cmd_p;
-    char *pwd;
     int i = 0;
     // char s[100];
 
 
     // mini->pwd = getcwd(NULL, 0);
-    pwd = getcwd(NULL, 0);
-    printf("%s\n", pwd);
-    free(pwd);
+    ft_pwd();
     chdir(getenv("HOME"));
     // printf("%s\n", getcwd(s, 100));
 
     while (1)
     {
-        pwd = getcwd(NULL, 0);
-        printf("%s\n", pwd);
-        free(pwd);
         cmd = readline(PROMPT);
         if (cmd[0])
         {
@@ -85,21 +79,17 @@ void loop(char *cmd)
                 free(cmd_p[i++]);
             free(cmd_p);
         }
-        if (cmd[0] == 'c' && cmd[1] == 'l')
+        if (!ft_strncmp(cmd, "history -c", 10))
             clear_history();
-        if (cmd[0] == 'e' && cmd[1] == 'x'
-            && cmd[2] == 'i' && cmd[3] == 't')
+        if (!ft_strncmp(cmd, "exit", 4))
         {
             free(cmd);
             printf("|%s| |%lld| \n", &cmd[5], LLONG_MAX);
             cheak_exit_val(&cmd[4]);
             break;
         }
-        if (cmd[0] == 'p' && cmd[1] == 'w' && cmd[2] == 'd')
-        {        pwd = getcwd(NULL, 0);
-        printf("%s\n", pwd);
-        free(pwd);
-        }
+        if (!ft_strncmp(cmd, "pwd", 3))
+            ft_pwd();
         free(cmd);
     }
 }

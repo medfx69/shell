@@ -6,7 +6,7 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:02:51 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/03 10:53:06 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/03 11:24:32 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct minishell
 int     ft_exec(char *cmd);
 void    ft_start(char *cmd);
 void    ft_cd(char *dir);
+void    ft_pwd(void);
 char    **pars(char *cmd);
 void	end(void);
 

@@ -6,8 +6,17 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 11:15:17 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/03 11:17:27 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/03 11:23:15 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
+
+void ft_pwd(void)
+{
+    char *tmp;
+
+    tmp = getcwd(NULL, 0);
+    printf("%s\n", tmp);
+    free(tmp);
+}
