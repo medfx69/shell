@@ -6,7 +6,7 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:02:31 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/03 11:48:05 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/03 11:48:50 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,10 +139,9 @@ int main(void)
     // }
 
     // signal(SIGINT, read_line);
-    loop(cmd);
-
     free(mini);
-    system("leaks minishell");
+    loop(cmd);
+    // system("leaks minishell");
 
     return (EXIT_SUCCESS);
 }
