@@ -6,7 +6,7 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:02:31 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/03 11:31:55 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/03 11:48:05 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ void loop(char *cmd)
         if (!ft_strncmp(cmd, "exit", 4))
         {
             free(cmd);
-            printf("|%s| |%lld| \n", &cmd[5], LLONG_MAX);
             cheak_exit_val(&cmd[4]);
             break;
         }
