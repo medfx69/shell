@@ -6,13 +6,13 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:02:31 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/03 11:48:50 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/03 11:55:47 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void    cheak_exit_val(char *cmd)
+int    cheak_exit_val(char *cmd)
 {
     int i;
     char max[22];
@@ -24,20 +24,20 @@ void    cheak_exit_val(char *cmd)
         i++;
     cmd = &cmd[i];
     if (*cmd == '\0')
-        exit (0);
+        return (0);
     len = ft_strlen(cmd);
     ft_strlcat("9223372036854775807", max, 19);
     i = 0;
     while((cmd[i] <= '9' || cmd[i] >= '0') && cmd[i])
         i++;
     if (len < 19 && len > 3)
-        exit (255);
+        return (255);
     else if (len > 19 || i != len)
     {
         ft_putstr_fd("minishell: exit: ", 2);
         ft_putstr_fd(cmd, 2);
         ft_putendl_fd(": numeric argument required", 2);
-        exit (255);
+        return (255);
     }
     else if (len == 19)
     {
@@ -46,16 +46,16 @@ void    cheak_exit_val(char *cmd)
             && max[i] <= cmd[i] && cmd[i])
             i++;
         if (i != len)
-            exit (255);
+            return (255);
     }
     len = ft_atoi(cmd);
     if (len <= 255)
-        exit ((unsigned int)len);
+        return ((unsigned int)len);
     else
-        exit (255);
+        return (255);
 }
 
-void loop(char *cmd)
+int loop(char *cmd)
 {
     char **cmd_p;
     int i = 0;
@@ -63,7 +63,7 @@ void loop(char *cmd)
 
 
     // mini->pwd = getcwd(NULL, 0);
-    ft_pwd();
+    // ft_pwd();
     chdir(getenv("HOME"));
     // printf("%s\n", getcwd(s, 100));
 
@@ -84,8 +84,7 @@ void loop(char *cmd)
         if (!ft_strncmp(cmd, "exit", 4))
         {
             free(cmd);
-            cheak_exit_val(&cmd[4]);
-            break;
+            return (cheak_exit_val(&cmd[4]));
         }
         if (!ft_strncmp(cmd, "pwd", 3))
             ft_pwd();
@@ -140,8 +139,7 @@ int main(void)
 
     // signal(SIGINT, read_line);
     free(mini);
-    loop(cmd);
     // system("leaks minishell");
 
-    return (EXIT_SUCCESS);
+    return (loop(cmd));
 }
