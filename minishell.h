@@ -6,7 +6,7 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:02:51 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/01 16:54:01 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/03 10:53:06 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,24 @@
 # include <errno.h>
 # include <limits.h>
 # include "utils/libft.h"
+
+# define  PROMPT        "Minishell> "
+# define  BACKSLASH     "\\"
+# define  SIMICOLON     ";"
+# define  SINGLEQUOT    "'"
+# define  DOUBLEEQUOT   "\""
+# define  DOLLAR        "$"
+# define  SRINPUT       "<"
+# define  DINPUT        "<<"
+# define  SROUTPUT      ">"
+# define  DOUTPUT       ">>"
+# define  PIPE          "|"
+
+typedef struct minishell
+{
+    char *pwd;
+
+}   mini_t;
 
 /*
     execution part:

@@ -6,7 +6,7 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:02:31 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/01 18:50:23 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/03 11:14:59 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,24 @@ void    cheak_exit_val(char *cmd)
 void loop(char *cmd)
 {
     char **cmd_p;
-   int i = 0;
+    char *pwd;
+    int i = 0;
+    // char s[100];
+
+
+    // mini->pwd = getcwd(NULL, 0);
+    pwd = getcwd(NULL, 0);
+    printf("%s\n", pwd);
+    free(pwd);
+    chdir(getenv("HOME"));
+    // printf("%s\n", getcwd(s, 100));
 
     while (1)
     {
-        cmd = readline( "Minishell> " );
+        pwd = getcwd(NULL, 0);
+        printf("%s\n", pwd);
+        free(pwd);
+        cmd = readline(PROMPT);
         if (cmd[0])
         {
             add_history(cmd);
@@ -82,6 +95,11 @@ void loop(char *cmd)
             cheak_exit_val(&cmd[4]);
             break;
         }
+        if (cmd[0] == 'p' && cmd[1] == 'w' && cmd[2] == 'd')
+        {        pwd = getcwd(NULL, 0);
+        printf("%s\n", pwd);
+        free(pwd);
+        }
         free(cmd);
     }
 }
@@ -89,7 +107,12 @@ void loop(char *cmd)
 
 int main(void)
 {
+    mini_t *mini;
     char *cmd = NULL;
+
+    mini = malloc(sizeof(mini_t));
+    if (!mini)
+        return (EXIT_FAILURE);
     // char *line;
     // int i;
     // DIR *dp;
@@ -129,7 +152,8 @@ int main(void)
     // signal(SIGINT, read_line);
     loop(cmd);
 
-    // system("leaks minishell");
+    free(mini);
+    system("leaks minishell");
 
     return (EXIT_SUCCESS);
 }

@@ -6,11 +6,11 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 11:37:36 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/05/31 11:45:18 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/03 11:17:23 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minishell.h"
+#include "../minishell.h"
 
 
 void    ft_cd(char *dir)
