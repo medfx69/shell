@@ -9,7 +9,7 @@ CFILES			= ft_split.c ft_strlen.c ft_strncmp.c ft_putstr_fd.c 	\
 				 ft_putchar_fd.c ft_putendl_fd.c ft_atoi.c ft_strlcat.c 
 
 
-PRINT			= 1
+PRINT			= 0
 
 OBJS	= $(CFILES:.c=.o)
 
