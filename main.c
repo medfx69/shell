@@ -6,7 +6,7 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:02:31 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/03 11:55:47 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/03 12:08:46 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int    cheak_exit_val(char *cmd)
     i = 0;
     while((cmd[i] <= '9' || cmd[i] >= '0') && cmd[i])
         i++;
-    if (len < 19 && len > 3)
-        return (255);
-    else if (len > 19 || i != len)
+    // if (len < 19 && len > 3)
+    //     return (255);
+    if (len > 19 || i != len)
     {
         ft_putstr_fd("minishell: exit: ", 2);
         ft_putstr_fd(cmd, 2);

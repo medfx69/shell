@@ -1,0 +1,257 @@
+---------------------------------
+[OK] case: exit 0
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+# bash     : stderr
+# minishell: exit status = 0
+# bash     : exit status = 0
+---------------------------------
+[OK] case: exit 1
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+# bash     : stderr
+# minishell: exit status = 1
+# bash     : exit status = 1
+---------------------------------
+[OK] case: exit -1
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+# bash     : stderr
+# minishell: exit status = 255
+# bash     : exit status = 255
+---------------------------------
+[OK] case: exit 2147483647
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+# bash     : stderr
+# minishell: exit status = 255
+# bash     : exit status = 255
+---------------------------------
+[OK] case: exit 2147483648
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+# bash     : stderr
+# minishell: exit status = 0
+# bash     : exit status = 0
+---------------------------------
+[OK] case: exit -2147483648
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+# bash     : stderr
+# minishell: exit status = 0
+# bash     : exit status = 0
+---------------------------------
+[OK] case: exit -2147483649
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+# bash     : stderr
+# minishell: exit status = 255
+# bash     : exit status = 255
+---------------------------------
+[KO] case: exit 9223372036854775807
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+minishell: exit: 9223372036854775807; exit: numeric argument required
+# bash     : stderr
+# minishell: exit status = 255
+# bash     : exit status = 255
+---------------------------------
+[KO] case: exit 9223372036854775808
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+minishell: exit: 9223372036854775808; exit: numeric argument required
+# bash     : stderr
+minishell: exit: 9223372036854775808: numeric argument required
+# minishell: exit status = 255
+# bash     : exit status = 255
+---------------------------------
+[KO] case: exit -9223372036854775808
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+minishell: exit: -9223372036854775808; exit: numeric argument required
+# bash     : stderr
+# minishell: exit status = 255
+# bash     : exit status = 0
+---------------------------------
+[KO] case: exit -9223372036854775809
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+minishell: exit: -9223372036854775809; exit: numeric argument required
+# bash     : stderr
+minishell: exit: -9223372036854775809: numeric argument required
+# minishell: exit status = 255
+# bash     : exit status = 255
+---------------------------------
+[KO] case: exit -- 42
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+# bash     : stderr
+# minishell: exit status = 0
+# bash     : exit status = 42
+---------------------------------
+[KO] case: exit " 42 "
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+minishell: exit: "        42           "; exit: numeric argument required
+# bash     : stderr
+# minishell: exit status = 255
+# bash     : exit status = 42
+---------------------------------
+[KO] case: exit -- -- 42
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+# bash     : stderr
+minishell: exit: --: numeric argument required
+# minishell: exit status = 0
+# bash     : exit status = 255
+---------------------------------
+[KO] case: exit --42
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+# bash     : stderr
+minishell: exit: --42: numeric argument required
+# minishell: exit status = 0
+# bash     : exit status = 255
+---------------------------------
+[KO] case: exit ++42
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+# bash     : stderr
+minishell: exit: ++42: numeric argument required
+# minishell: exit status = 0
+# bash     : exit status = 255
+---------------------------------
+[KO] case: exit 42 42
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+# bash     : stderr
+minishell: exit: too many arguments
+# minishell: exit status = 42
+# bash     : exit status = 1
+---------------------------------
+[KO] case: exit a
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+# bash     : stderr
+minishell: exit: a: numeric argument required
+# minishell: exit status = 0
+# bash     : exit status = 255
+---------------------------------
+[KO] case: exit 1a
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+# bash     : stderr
+minishell: exit: 1a: numeric argument required
+# minishell: exit status = 1
+# bash     : exit status = 255
+---------------------------------
+[KO] case: exit +
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+# bash     : stderr
+minishell: exit: +: numeric argument required
+# minishell: exit status = 0
+# bash     : exit status = 255
+---------------------------------
+[KO] case: exit -
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+# bash     : stderr
+minishell: exit: -: numeric argument required
+# minishell: exit status = 0
+# bash     : exit status = 255
+---------------------------------
+[KO] case: exit " "
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+# bash     : stderr
+minishell: exit:           : numeric argument required
+# minishell: exit status = 0
+# bash     : exit status = 255
+---------------------------------
+[KO] case: exit 0 0;
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+# bash     : stderr
+minishell: syntax error near unexpected token `;;'
+# minishell: exit status = 0
+# bash     : exit status = 2
+---------------------------------
+[KO] case: exit 0 0; exit
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+# bash     : stderr
+minishell: exit: too many arguments
+# minishell: exit status = 0
+# bash     : exit status = 1
+---------------------------------
+[KO] case: exit 0 0; echo "this message should not be displayed" 2> file; ls
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+minishell: exit: 0 0; echo "this message should not be displayed" 2> file; ls; exit: numeric argument required
+# bash     : stderr
+minishell: exit: too many arguments
+# minishell: exit status = 255
+# bash     : exit status = 1
+---------------------------------
+[KO] case: exit 0 0 | echo hello
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+hello
+# minishell: stderr
+minishell: exit: 0 0 | echo hello; exit: numeric argument required
+# bash     : stderr
+minishell: exit: too many arguments
+# minishell: exit status = 255
+# bash     : exit status = 0

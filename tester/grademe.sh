@@ -8,7 +8,7 @@ readonly MINISHELL_EXE="../minishell"
 # If you launch this script with -c option, MINISHELL_PROMPT is ignored
 readonly MINISHELL_PROMPT="Minishell> "
 # ------------------------------------------------------------------------------
-
+make re -C ../
 readonly SCRIPT_FILE="$0"
 readonly LOG_FILE_NAME="result.log"
 
