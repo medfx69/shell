@@ -6,7 +6,7 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 11:34:43 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/03 10:18:18 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/04 13:20:28 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 char    **pars(char *cmd)
 {
     char **cmd_p;
+
 
     cmd_p = ft_split(cmd, ';');
 

@@ -6,7 +6,7 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 10:55:35 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/01 06:48:28 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/04 13:29:32 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,13 @@ int ft_exec(char *cmd)
     }
 
     // printf("<|%s|>\n", line);
-    // int id = fork();
-    // if (id == 0)
-    // {
+    int id = fork();
+    if (id == 0)
+    {
         
-    //     execve(line, cmd_s, NULL);
-    // }
+        execve(line, cmd_s, NULL);
+    }
+    waitpid(id, NULL, 0);
 
 
     // printf("<|%s|>\n", line);
