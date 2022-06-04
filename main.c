@@ -6,7 +6,7 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:02:31 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/04 13:24:58 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/04 16:31:50 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ int    cheak_exit_val(char *cmd)
 
 int loop(char *cmd)
 {
-    // char **cmd_p;
-    // int i = 0;
+    char **cmd_p;
+    int i = 0;
     // char s[100];
 
 
@@ -70,15 +70,15 @@ int loop(char *cmd)
     while (1)
     {
         cmd = readline(PROMPT);
-        if (cmd[0])
+        add_history(cmd);
+        // ft_exec(cmd);
+        cmd_p = pars(cmd);
+        // ft_start(cmd);
+        if (cmd_p != NULL)
         {
-            add_history(cmd);
-            ft_exec(cmd);
-            // cmd_p = pars(cmd);
-            // ft_start(cmd);
-            // while (cmd_p[i])
-            //     free(cmd_p[i++]);
-            // free(cmd_p);
+            while (cmd_p[i])
+                free(cmd_p[i++]);
+            free(cmd_p);
         }
         if (!ft_strncmp(cmd, "history -c", 10))
             clear_history();

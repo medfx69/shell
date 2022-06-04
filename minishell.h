@@ -6,7 +6,7 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:02:51 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/03 11:24:32 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/04 16:16:24 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,3 +62,5 @@ char    **pars(char *cmd);
 void	end(void);
 
 #endif // !MINISHELL_H
+
+//    ls -a    "dir"    ;   cat "file"   
