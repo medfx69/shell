@@ -6,7 +6,7 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 10:55:35 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/04 13:29:32 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/04 13:33:00 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,11 @@ static void free_it(char **s, char **ss, char *line)
 
 int ft_exec(char *cmd)
 {
-    char **path_s;
-    char **cmd_s;
-    char *line;
+    char    **path_s;
+    char    **cmd_s;
+    char    *line;
     int     i;
+    int     pid;
 
     i = -1;
     cmd_s = ft_split(cmd, ' ');
@@ -75,26 +76,15 @@ int ft_exec(char *cmd)
     {
         ft_putstr_fd("minishell: command not found: ", 2);
         ft_putendl_fd(cmd_s[0], 2);
-        // free splits
         free_it(path_s, cmd_s, line);
-        return (0);
+        return (127);
     }
-
-    // printf("<|%s|>\n", line);
-    int id = fork();
-    if (id == 0)
-    {
-        
+    pid = fork();
+    if (pid < 0)
+        return (EXIT_FAILURE);
+    if (pid == 0)
         execve(line, cmd_s, NULL);
-    }
-    waitpid(id, NULL, 0);
-
-
-    // printf("<|%s|>\n", line);
-    // free splits
+    waitpid(pid, NULL, 0);
     free_it(path_s, cmd_s, line);
-
-    // end free splits 
-
-    return (0);
+    return (EXIT_SUCCESS);
 }
