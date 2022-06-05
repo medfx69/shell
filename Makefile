@@ -6,14 +6,14 @@
 #    By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/24 17:01:37 by mboukhal          #+#    #+#              #
-#    Updated: 2022/06/04 15:45:07 by mboukhal         ###   ########.fr        #
+#    Updated: 2022/06/05 10:34:48 by mboukhal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .DEFAULT_GOAL		= all
 NAME				= minishell
 CFILES				= main.c ft_start.c execution/ft_cd.c execution/ft_exec.c	\
-					 parsing/main_pars.c execution/ft_pwd.c test.c
+					 parsing/main_pars.c execution/ft_pwd.c test.c execution/ft_env.c 
 
 CFLAGS				= -Wall -Wextra -Werror
 FSANI				= -g -fsanitize=address ; echo "\t$(GREEN)fsanitize active$(NC)"

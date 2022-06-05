@@ -1,61 +1,1848 @@
 ---------------------------------
-[OK] case: exit 0
+[KO] case: mkdir dir; cd dir; pwd
 ---------------------------------
 # minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/dir
+# minishell: stderr
+scripts/helper.sh: line 130: 62066 Done                    echo "$1; exit"
+     62067 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: mkdir dir; cd dir; cd .; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/dir
+# minishell: stderr
+scripts/helper.sh: line 130: 62096 Done                    echo "$1; exit"
+     62097 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: mkdir dir; cd dir; cd ./; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/dir
+# minishell: stderr
+scripts/helper.sh: line 130: 62125 Done                    echo "$1; exit"
+     62126 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: mkdir dir; cd dir; cd ..; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test
+# minishell: stderr
+scripts/helper.sh: line 130: 62154 Done                    echo "$1; exit"
+     62155 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: mkdir dir; cd dir; cd ../; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test
+# minishell: stderr
+scripts/helper.sh: line 130: 62183 Done                    echo "$1; exit"
+     62184 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: touch testfile; cd testfile
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 62212 Done                    echo "$1; exit"
+     62213 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: cd: testfile: Not a directory
+# minishell: exit status = 139
+# bash     : exit status = 1
+---------------------------------
+[KO] case: cd NO_SUCH_FILE; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test
+# minishell: stderr
+scripts/helper.sh: line 130: 62240 Done                    echo "$1; exit"
+     62241 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: cd: NO_SUCH_FILE: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: cd hello world; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test
+# minishell: stderr
+scripts/helper.sh: line 130: 62268 Done                    echo "$1; exit"
+     62269 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: cd: hello: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: cd /; cd ../../akjwyefgjkwveyjfgweyugyuwegf76t273/../../ ;pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/
+# minishell: stderr
+scripts/helper.sh: line 130: 62296 Done                    echo "$1; exit"
+     62297 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: cd: ../../akjwyefgjkwveyjfgweyugyuwegf76t273/../../: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: mkdir dir; cd dir; cd ../nosuchdir/../dir; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/dir
+# minishell: stderr
+scripts/helper.sh: line 130: 62325 Done                    echo "$1; exit"
+     62326 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: cd: ../nosuchdir/../dir: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: mkdir hello; cd hello world; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/hello
+# minishell: stderr
+scripts/helper.sh: line 130: 62354 Done                    echo "$1; exit"
+     62355 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: cd /; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/
+# minishell: stderr
+scripts/helper.sh: line 130: 62382 Done                    echo "$1; exit"
+     62383 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: cd /bin; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/bin
+# minishell: stderr
+scripts/helper.sh: line 130: 62410 Done                    echo "$1; exit"
+     62411 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: cd /bin/../; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/
+# minishell: stderr
+scripts/helper.sh: line 130: 62438 Done                    echo "$1; exit"
+     62439 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: mkdir dir; cd DIR; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/DIR
+# minishell: stderr
+scripts/helper.sh: line 130: 62467 Done                    echo "$1; exit"
+     62468 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: mkdir DIR; cd dir; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/dir
+# minishell: stderr
+scripts/helper.sh: line 130: 62497 Done                    echo "$1; exit"
+     62498 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: mkdir dir; chmod 000 dir; cd dir; pwd;chmod 777 dir
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test
+# minishell: stderr
+scripts/helper.sh: line 130: 62528 Done                    echo "$1; exit"
+     62529 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: cd: dir: Permission denied
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: mkdir dir; ln -s dir link; cd link; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/link
+# minishell: stderr
+scripts/helper.sh: line 130: 62560 Done                    echo "$1; exit"
+     62561 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: mkdir dir; ln -s dir link; rmdir dir; cd link; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test
+# minishell: stderr
+scripts/helper.sh: line 130: 62591 Done                    echo "$1; exit"
+     62592 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: cd: link: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: mkdir dir; cd dir; rmdir ../dir; cd ./; pwd;cd .; pwd; cd ./././././; pwd; cd .////////./; pwd; cd ../; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/dir/./
+/Users/mboukhal/Desktop/minishell/tester/test/dir/./.
+/Users/mboukhal/Desktop/minishell/tester/test/dir/./././././././
+/Users/mboukhal/Desktop/minishell/tester/test/dir/././././././././///////./
+/Users/mboukhal/Desktop/minishell/tester/test
+# minishell: stderr
+scripts/helper.sh: line 130: 62621 Done                    echo "$1; exit"
+     62622 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+cd: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+cd: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+cd: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+cd: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: mkdir -p a/b/c; cd a/b/c; rm -rf ../../b; cd ./; pwd; cd ../; pwd; cd .////./; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/a/b/c/./
+/Users/mboukhal/Desktop/minishell/tester/test/a/b/c/./../
+/Users/mboukhal/Desktop/minishell/tester/test/a/b/c/./.././///./
+# minishell: stderr
+scripts/helper.sh: line 130: 62651 Done                    echo "$1; exit"
+     62652 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+cd: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+cd: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+cd: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: mkdir -p a/b/c; cd a/b/c; rm -rf ../../b; cd ./; pwd; cd .././.; pwd; cd ./; pwd; cd ../; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/a/b/c/./
+/Users/mboukhal/Desktop/minishell/tester/test/a/b/c/./.././.
+/Users/mboukhal/Desktop/minishell/tester/test/a/b/c/./.././././
+/Users/mboukhal/Desktop/minishell/tester/test/a
+# minishell: stderr
+scripts/helper.sh: line 130: 62681 Done                    echo "$1; exit"
+     62682 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+cd: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+cd: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+cd: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: cd ; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal
+# minishell: stderr
+scripts/helper.sh: line 130: 62709 Done                    echo "$1; exit"
+     62710 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export HOME=; cd ; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test
+# minishell: stderr
+scripts/helper.sh: line 130: 62737 Done                    echo "$1; exit"
+     62738 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: unset HOME; cd ; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test
+# minishell: stderr
+scripts/helper.sh: line 130: 62765 Done                    echo "$1; exit"
+     62766 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: cd: HOME not set
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export HOME="./"; cd ; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test
+# minishell: stderr
+scripts/helper.sh: line 130: 62793 Done                    echo "$1; exit"
+     62794 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export HOME="../../"; cd ; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell
+# minishell: stderr
+scripts/helper.sh: line 130: 62821 Done                    echo "$1; exit"
+     62822 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export HOME=""; cd ; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test
+# minishell: stderr
+scripts/helper.sh: line 130: 62849 Done                    echo "$1; exit"
+     62850 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export HOME="/BIN"; cd ; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/BIN
+# minishell: stderr
+scripts/helper.sh: line 130: 62877 Done                    echo "$1; exit"
+     62878 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export HOME=a; mkdir -p a/b; cd ; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/a
+# minishell: stderr
+scripts/helper.sh: line 130: 62906 Done                    echo "$1; exit"
+     62907 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export HOME=NO_SUCH_FILE; cd ; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test
+# minishell: stderr
+scripts/helper.sh: line 130: 62934 Done                    echo "$1; exit"
+     62935 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: cd: NO_SUCH_FILE: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH="/"; cd bin; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/bin
+/bin
+# minishell: stderr
+scripts/helper.sh: line 130: 62962 Done                    echo "$1; exit"
+     62963 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH="/"; cd ; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal
+# minishell: stderr
+scripts/helper.sh: line 130: 62990 Done                    echo "$1; exit"
+     62991 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH="/"; export HOME=; cd ; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test
+# minishell: stderr
+scripts/helper.sh: line 130: 63018 Done                    echo "$1; exit"
+     63019 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH="/"; unset HOME; cd ; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test
+# minishell: stderr
+scripts/helper.sh: line 130: 63046 Done                    echo "$1; exit"
+     63047 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: cd: HOME not set
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH=""; mkdir -p a/b; cd b; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test
+# minishell: stderr
+scripts/helper.sh: line 130: 63075 Done                    echo "$1; exit"
+     63076 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: cd: b: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH="./"; mkdir dir; cd dir; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/dir
+/Users/mboukhal/Desktop/minishell/tester/test/dir
+# minishell: stderr
+scripts/helper.sh: line 130: 63104 Done                    echo "$1; exit"
+     63105 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH="../a"; mkdir -p a/b/c; cd b; pwd; cd a; pwd; cd b; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test
+/Users/mboukhal/Desktop/minishell/tester/test/a
+/Users/mboukhal/Desktop/minishell/tester/test/a/b
+/Users/mboukhal/Desktop/minishell/tester/test/a/b
+# minishell: stderr
+scripts/helper.sh: line 130: 63133 Done                    echo "$1; exit"
+     63134 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: cd: b: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH=a; mkdir -p a/b/c; cd b; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/a/b
+/Users/mboukhal/Desktop/minishell/tester/test/a/b
+# minishell: stderr
+scripts/helper.sh: line 130: 63163 Done                    echo "$1; exit"
+     63164 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH=A; mkdir -p a/b/c; cd b; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/A/b
+/Users/mboukhal/Desktop/minishell/tester/test/A/b
+# minishell: stderr
+scripts/helper.sh: line 130: 63192 Done                    echo "$1; exit"
+     63193 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH=a; mkdir -p a/b/c; cd ./b; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test
+# minishell: stderr
+scripts/helper.sh: line 130: 63221 Done                    echo "$1; exit"
+     63222 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: cd: ./b: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH=a; mkdir -p a/b/c; cd a; cd ../b; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/a
+# minishell: stderr
+scripts/helper.sh: line 130: 63250 Done                    echo "$1; exit"
+     63251 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: cd: ../b: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH=a; mkdir -p a/b/c; cd .; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test
+# minishell: stderr
+scripts/helper.sh: line 130: 63279 Done                    echo "$1; exit"
+     63280 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH=a; mkdir -p a/b/c; cd a; cd ..; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test
+# minishell: stderr
+scripts/helper.sh: line 130: 63309 Done                    echo "$1; exit"
+     63310 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH=a; mkdir -p a/b/c; mkdir b; cd b; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/a/b
+/Users/mboukhal/Desktop/minishell/tester/test/a/b
+# minishell: stderr
+scripts/helper.sh: line 130: 63339 Done                    echo "$1; exit"
+     63340 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH=a/b; mkdir -p a/b/c; cd c; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/a/b/c
+/Users/mboukhal/Desktop/minishell/tester/test/a/b/c
+# minishell: stderr
+scripts/helper.sh: line 130: 63368 Done                    echo "$1; exit"
+     63369 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH=a:b:a:b; mkdir -p a/test b/test; mkdir -p a:b/test; cd test; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/a/test
+/Users/mboukhal/Desktop/minishell/tester/test/a/test
+# minishell: stderr
+scripts/helper.sh: line 130: 63404 Done                    echo "$1; exit"
+     63405 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH=b:a:a:b; mkdir -p a/test b/test; mkdir -p a:b/test; cd test; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/b/test
+/Users/mboukhal/Desktop/minishell/tester/test/b/test
+# minishell: stderr
+scripts/helper.sh: line 130: 63434 Done                    echo "$1; exit"
+     63435 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH=a:b:a:b; mkdir -p a/hello b/hello; mkdir -p a:b/test; cd test; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test
+# minishell: stderr
+scripts/helper.sh: line 130: 63464 Done                    echo "$1; exit"
+     63465 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: cd: test: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH=a:b:a:b; mkdir -p a/test b/test; mkdir -p a:b/test; chmod 000 a/test ;cd test; pwd; cd ../../; chmod 777 a/test
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/b/test
+/Users/mboukhal/Desktop/minishell/tester/test/b/test
+# minishell: stderr
+scripts/helper.sh: line 130: 63496 Done                    echo "$1; exit"
+     63497 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH="/"; cd /; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/
+# minishell: stderr
+scripts/helper.sh: line 130: 63524 Done                    echo "$1; exit"
+     63525 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH="/"; cd /bin; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/bin
+# minishell: stderr
+scripts/helper.sh: line 130: 63552 Done                    echo "$1; exit"
+     63553 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH="/bin"; cd /bin; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/bin
+# minishell: stderr
+scripts/helper.sh: line 130: 63580 Done                    echo "$1; exit"
+     63581 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH="/bin"; cd /bin; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/bin
+# minishell: stderr
+scripts/helper.sh: line 130: 63608 Done                    echo "$1; exit"
+     63609 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH="a"; mkdir a; cd a; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/a
+# minishell: stderr
+scripts/helper.sh: line 130: 63637 Done                    echo "$1; exit"
+     63638 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH="a"; mkdir -p a/a; cd a; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/a/a
+/Users/mboukhal/Desktop/minishell/tester/test/a/a
+# minishell: stderr
+scripts/helper.sh: line 130: 63666 Done                    echo "$1; exit"
+     63667 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: mkdir -p a/b/c/d/e/f/g/h/i/; cd a/b/c/d/../../c/d/e/f/g/h/i/../../../g/h/i/../.././././../g/h/i/../../../../../../../c/d/../d/../d/e/../../d/e/.././././e/f/.//////../f/g/h/i/////../../../; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/a/b/c/d/e/f
+# minishell: stderr
+scripts/helper.sh: line 130: 63695 Done                    echo "$1; exit"
+     63696 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export HOME="/"; cd; cd ../../../../../././././../../../././../../../; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/
+# minishell: stderr
+scripts/helper.sh: line 130: 63723 Done                    echo "$1; exit"
+     63724 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: cd //; pwd; cd //bin; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+//
+//bin
+# minishell: stderr
+scripts/helper.sh: line 130: 63751 Done                    echo "$1; exit"
+     63752 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: cd ///; pwd; cd ///bin; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/
+/bin
+# minishell: stderr
+scripts/helper.sh: line 130: 63779 Done                    echo "$1; exit"
+     63780 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: cd ////; pwd; cd ////bin; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/
+/bin
+# minishell: stderr
+scripts/helper.sh: line 130: 63811 Done                    echo "$1; exit"
+     63812 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: cd /////; pwd; cd /////bin; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/
+/bin
+# minishell: stderr
+scripts/helper.sh: line 130: 63839 Done                    echo "$1; exit"
+     63840 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: cd //////; pwd; cd //////bin; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/
+/bin
+# minishell: stderr
+scripts/helper.sh: line 130: 63867 Done                    echo "$1; exit"
+     63868 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: cd ///////; pwd; cd ///////bin; pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/
+/bin
+# minishell: stderr
+scripts/helper.sh: line 130: 63895 Done                    echo "$1; exit"
+     63896 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export HOME=//; cd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 63923 Done                    echo "$1; exit"
+     63924 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export HOME=//bin/..////////////bin/../; cd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 63951 Done                    echo "$1; exit"
+     63952 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export HOME=///; cd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 63979 Done                    echo "$1; exit"
+     63980 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH=//; cd bin
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+//bin
+# minishell: stderr
+scripts/helper.sh: line 130: 64007 Done                    echo "$1; exit"
+     64008 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH=//bin/..////////////bin/../; cd bin
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+//bin
+# minishell: stderr
+scripts/helper.sh: line 130: 64035 Done                    echo "$1; exit"
+     64036 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH=///; cd bin
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/bin
+# minishell: stderr
+scripts/helper.sh: line 130: 64063 Done                    echo "$1; exit"
+     64064 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH=":"; cd dir; pwd [setup: mkdir dir]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/dir
+# minishell: stderr
+scripts/helper.sh: line 130: 64093 Done                    echo "$1; exit"
+     64094 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH="hello:"; cd dir; pwd [setup: mkdir dir]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/dir
+# minishell: stderr
+scripts/helper.sh: line 130: 64125 Done                    echo "$1; exit"
+     64126 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH=":/"; cd dir; pwd [setup: mkdir dir]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/dir
+# minishell: stderr
+scripts/helper.sh: line 130: 64157 Done                    echo "$1; exit"
+     64158 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH="::/"; cd bin; pwd [setup: mkdir bin]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/bin
+# minishell: stderr
+scripts/helper.sh: line 130: 64191 Done                    echo "$1; exit"
+     64192 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH="::/:"; cd bin; pwd [setup: mkdir bin]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/bin
+# minishell: stderr
+scripts/helper.sh: line 130: 64223 Done                    echo "$1; exit"
+     64224 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH=""; cd bin; pwd [setup: mkdir bin]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/bin
+# minishell: stderr
+scripts/helper.sh: line 130: 64255 Done                    echo "$1; exit"
+     64256 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH="/:"; cd bin; pwd [setup: mkdir bin]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/bin
+/bin
+# minishell: stderr
+scripts/helper.sh: line 130: 64287 Done                    echo "$1; exit"
+     64288 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export CDPATH="//::"; cd bin; pwd [setup: mkdir bin]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+//bin
+//bin
+# minishell: stderr
+scripts/helper.sh: line 130: 64319 Done                    echo "$1; exit"
+     64320 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+
+# minishell: stderr
+scripts/helper.sh: line 130: 64350 Done                    echo "$1; exit"
+     64351 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo a
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+a
+# minishell: stderr
+scripts/helper.sh: line 130: 64378 Done                    echo "$1; exit"
+     64379 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo tab
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+tab
+# minishell: stderr
+scripts/helper.sh: line 130: 64406 Done                    echo "$1; exit"
+     64407 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo " tab "
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+	tab	
+# minishell: stderr
+scripts/helper.sh: line 130: 64434 Done                    echo "$1; exit"
+     64435 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo tab
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+tab
+# minishell: stderr
+scripts/helper.sh: line 130: 64462 Done                    echo "$1; exit"
+     64463 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo hello world
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+hello world
+# minishell: stderr
+scripts/helper.sh: line 130: 64491 Done                    echo "$1; exit"
+     64492 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo -n
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 64519 Done                    echo "$1; exit"
+     64520 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo -n a
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+a# minishell: stderr
+scripts/helper.sh: line 130: 64547 Done                    echo "$1; exit"
+     64548 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo -n hello world
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+hello world# minishell: stderr
+scripts/helper.sh: line 130: 64575 Done                    echo "$1; exit"
+     64576 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo -nnnnnnnn
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 64603 Done                    echo "$1; exit"
+     64604 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo -nnnnnnnn a
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+a# minishell: stderr
+scripts/helper.sh: line 130: 64631 Done                    echo "$1; exit"
+     64632 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo -nnnnnnnn hello world
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+hello world# minishell: stderr
+scripts/helper.sh: line 130: 64659 Done                    echo "$1; exit"
+     64660 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo -nnnnnnnn -nnnnnnnn
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 64687 Done                    echo "$1; exit"
+     64688 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo -nnnnnnnn -nnnnnnnn a
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+a# minishell: stderr
+scripts/helper.sh: line 130: 64715 Done                    echo "$1; exit"
+     64716 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo -nnnnnnnn -nnnnnnnn hello world
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+hello world# minishell: stderr
+scripts/helper.sh: line 130: 64743 Done                    echo "$1; exit"
+     64744 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo -nk hello
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+-nk hello
+# minishell: stderr
+scripts/helper.sh: line 130: 64771 Done                    echo "$1; exit"
+     64772 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo -nnnnnnnnnnk hello
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+-nnnnnnnnnnk hello
+# minishell: stderr
+scripts/helper.sh: line 130: 64799 Done                    echo "$1; exit"
+     64800 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo -nknknknk hello
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+-nknknknk hello
+# minishell: stderr
+scripts/helper.sh: line 130: 64827 Done                    echo "$1; exit"
+     64828 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo hello -n
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+hello -n
+# minishell: stderr
+scripts/helper.sh: line 130: 64855 Done                    echo "$1; exit"
+     64856 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo hello -nnnnnnn
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+hello -nnnnnnn
+# minishell: stderr
+scripts/helper.sh: line 130: 64883 Done                    echo "$1; exit"
+     64884 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo hello -nknknknknk
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+hello -nknknknknk
+# minishell: stderr
+scripts/helper.sh: line 130: 64911 Done                    echo "$1; exit"
+     64912 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo hello -nnnnnnnnn -nnnnnnnnn
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+hello -nnnnnnnnn -nnnnnnnnn
+# minishell: stderr
+scripts/helper.sh: line 130: 64939 Done                    echo "$1; exit"
+     64940 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo \-n hello
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+hello# minishell: stderr
+scripts/helper.sh: line 130: 64967 Done                    echo "$1; exit"
+     64968 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo "-n" hello
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+hello# minishell: stderr
+scripts/helper.sh: line 130: 64995 Done                    echo "$1; exit"
+     64996 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo '-n' hello
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+hello# minishell: stderr
+scripts/helper.sh: line 130: 65029 Done                    echo "$1; exit"
+     65030 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo "-n" "hello"
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+hello# minishell: stderr
+scripts/helper.sh: line 130: 65057 Done                    echo "$1; exit"
+     65058 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo '-n' 'hello'
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+hello# minishell: stderr
+scripts/helper.sh: line 130: 65085 Done                    echo "$1; exit"
+     65086 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo \-\n \h\e\l\l\o
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+hello# minishell: stderr
+scripts/helper.sh: line 130: 65113 Done                    echo "$1; exit"
+     65114 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo '\-\n' '\h\e\l\l\o'
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+\-\n \h\e\l\l\o
+# minishell: stderr
+scripts/helper.sh: line 130: 65142 Done                    echo "$1; exit"
+     65143 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo "\-\n" "\h\e\l\l\o"
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+\-\n \h\e\l\l\o
+# minishell: stderr
+scripts/helper.sh: line 130: 65170 Done                    echo "$1; exit"
+     65171 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo $PATH
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Users/mboukhal/.brew/bin:/goinfre/mboukhal/miniconda3/condabin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin
+# minishell: stderr
+scripts/helper.sh: line 130: 65198 Done                    echo "$1; exit"
+     65199 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo "$PATH"
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Users/mboukhal/.brew/bin:/goinfre/mboukhal/miniconda3/condabin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin
+# minishell: stderr
+scripts/helper.sh: line 130: 65226 Done                    echo "$1; exit"
+     65227 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo '$PATH'
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+$PATH
+# minishell: stderr
+scripts/helper.sh: line 130: 65254 Done                    echo "$1; exit"
+     65255 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo \$PATH
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+$PATH
+# minishell: stderr
+scripts/helper.sh: line 130: 65282 Done                    echo "$1; exit"
+     65283 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo "\$PATH"
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+$PATH
+# minishell: stderr
+scripts/helper.sh: line 130: 65310 Done                    echo "$1; exit"
+     65311 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo '\$PATH'
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+\$PATH
+# minishell: stderr
+scripts/helper.sh: line 130: 65338 Done                    echo "$1; exit"
+     65339 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo a "" b "" c
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+a  b  c
+# minishell: stderr
+scripts/helper.sh: line 130: 65367 Done                    echo "$1; exit"
+     65368 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo a "$NO_SUCH_ENV" b $NO_SUCH_ENV c [setup: unset NO_SUCH_ENV]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+a  b c
+# minishell: stderr
+scripts/helper.sh: line 130: 65395 Done                    echo "$1; exit"
+     65396 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo hello
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+hello
+# minishell: stderr
+scripts/helper.sh: line 130: 65425 Done                    echo "$1; exit"
+     65426 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo \"$\"
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+"$"
+# minishell: stderr
+scripts/helper.sh: line 130: 65453 Done                    echo "$1; exit"
+     65454 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo "$ $ $ $ $ $ "
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+$ $ $ $ $ $ 
+# minishell: stderr
+scripts/helper.sh: line 130: 65481 Done                    echo "$1; exit"
+     65482 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo "\$\$USER\\$USER""$USER"
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+$$USER\mboukhalmboukhal
+# minishell: stderr
+scripts/helper.sh: line 130: 65509 Done                    echo "$1; exit"
+     65510 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo $
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+$
+# minishell: stderr
+scripts/helper.sh: line 130: 65537 Done                    echo "$1; exit"
+     65538 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo \$USER
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+$USER
+# minishell: stderr
+scripts/helper.sh: line 130: 65565 Done                    echo "$1; exit"
+     65566 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo \\$USER
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+\mboukhal
+# minishell: stderr
+scripts/helper.sh: line 130: 65593 Done                    echo "$1; exit"
+     65594 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo \\\$USER
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+\$USER
+# minishell: stderr
+scripts/helper.sh: line 130: 65621 Done                    echo "$1; exit"
+     65622 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo \\\\$USER
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+\\mboukhal
+# minishell: stderr
+scripts/helper.sh: line 130: 65649 Done                    echo "$1; exit"
+     65650 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: env | grep -v -E '^_=' | sort
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+ANDROID_SDK_HOME=/Users/mboukhal/Library/Android/sdk
+Apple_PubSub_Socket_Render=/private/tmp/com.apple.launchd.tknBkUQmr2/Render
+COLORTERM=truecolor
+COMMAND_MODE=unix2003
+CONDA_EXE=/goinfre/mboukhal/miniconda3/bin/conda
+CONDA_PYTHON_EXE=/goinfre/mboukhal/miniconda3/bin/python
+CONDA_SHLVL=0
+GIT_ASKPASS=/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass.sh
+HOME=/Users/mboukhal
+HOMEBREW_CACHE=/tmp/mboukhal/Homebrew/Caches
+HOMEBREW_TEMP=/tmp/mboukhal/Homebrew/Temp
+JAVA_HOME=/Applications/Android Studio.app/Contents/jre/Contents/Home
+LANG=en_US.UTF-8
+LESS=-R
+LOGNAME=mboukhal
+LSCOLORS=Gxfxcxdxbxegedabagacad
+ORIGINAL_XDG_CURRENT_DESKTOP=undefined
+PAGER=less
+PATH=/Users/mboukhal/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Users/mboukhal/.brew/bin:/goinfre/mboukhal/miniconda3/condabin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin
+PWD=/Users/mboukhal/Desktop/minishell/tester/test
+SECURITYSESSIONID=186a8
+SHELL=/bin/zsh
+SHLVL=3
+SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.n0qNfwqQ9k/Listeners
+TERM=xterm-256color
+TERM_PROGRAM=vscode
+TERM_PROGRAM_VERSION=1.67.2
+TMPDIR=/var/folders/zz/zyxvpxvq6csfxvn_n0000j7w00049z/T/
+USER=mboukhal
+VSCODE_GIT_ASKPASS_EXTRA_ARGS=--ms-enable-electron-run-as-node
+VSCODE_GIT_ASKPASS_MAIN=/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass-main.js
+VSCODE_GIT_ASKPASS_NODE=/Applications/Visual Studio Code.app/Contents/MacOS/Electron
+VSCODE_GIT_IPC_HANDLE=/var/folders/zz/zyxvpxvq6csfxvn_n0000j7w00049z/T/vscode-git-d7ae64e511.sock
+XPC_FLAGS=0x0
+XPC_SERVICE_NAME=0
+ZSH=/Users/mboukhal/.oh-my-zsh
+_CE_CONDA=
+_CE_M=
+__CF_USER_TEXT_ENCODING=0x113F:0x0:0x0
+# minishell: stderr
+scripts/helper.sh: line 130: 65681 Done                    echo "$1; exit"
+     65682 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: env | grep -v -E '^_=' | sort [setup: export A=hello]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+A=hello
+ANDROID_SDK_HOME=/Users/mboukhal/Library/Android/sdk
+Apple_PubSub_Socket_Render=/private/tmp/com.apple.launchd.tknBkUQmr2/Render
+COLORTERM=truecolor
+COMMAND_MODE=unix2003
+CONDA_EXE=/goinfre/mboukhal/miniconda3/bin/conda
+CONDA_PYTHON_EXE=/goinfre/mboukhal/miniconda3/bin/python
+CONDA_SHLVL=0
+GIT_ASKPASS=/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass.sh
+HOME=/Users/mboukhal
+HOMEBREW_CACHE=/tmp/mboukhal/Homebrew/Caches
+HOMEBREW_TEMP=/tmp/mboukhal/Homebrew/Temp
+JAVA_HOME=/Applications/Android Studio.app/Contents/jre/Contents/Home
+LANG=en_US.UTF-8
+LESS=-R
+LOGNAME=mboukhal
+LSCOLORS=Gxfxcxdxbxegedabagacad
+ORIGINAL_XDG_CURRENT_DESKTOP=undefined
+PAGER=less
+PATH=/Users/mboukhal/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Users/mboukhal/.brew/bin:/goinfre/mboukhal/miniconda3/condabin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin
+PWD=/Users/mboukhal/Desktop/minishell/tester/test
+SECURITYSESSIONID=186a8
+SHELL=/bin/zsh
+SHLVL=3
+SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.n0qNfwqQ9k/Listeners
+TERM=xterm-256color
+TERM_PROGRAM=vscode
+TERM_PROGRAM_VERSION=1.67.2
+TMPDIR=/var/folders/zz/zyxvpxvq6csfxvn_n0000j7w00049z/T/
+USER=mboukhal
+VSCODE_GIT_ASKPASS_EXTRA_ARGS=--ms-enable-electron-run-as-node
+VSCODE_GIT_ASKPASS_MAIN=/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass-main.js
+VSCODE_GIT_ASKPASS_NODE=/Applications/Visual Studio Code.app/Contents/MacOS/Electron
+VSCODE_GIT_IPC_HANDLE=/var/folders/zz/zyxvpxvq6csfxvn_n0000j7w00049z/T/vscode-git-d7ae64e511.sock
+XPC_FLAGS=0x0
+XPC_SERVICE_NAME=0
+ZSH=/Users/mboukhal/.oh-my-zsh
+_CE_CONDA=
+_CE_M=
+__CF_USER_TEXT_ENCODING=0x113F:0x0:0x0
+# minishell: stderr
+scripts/helper.sh: line 130: 65715 Done                    echo "$1; exit"
+     65716 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: cd ../; env | grep -v -E '^_=' | sort
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+A=hello
+ANDROID_SDK_HOME=/Users/mboukhal/Library/Android/sdk
+Apple_PubSub_Socket_Render=/private/tmp/com.apple.launchd.tknBkUQmr2/Render
+COLORTERM=truecolor
+COMMAND_MODE=unix2003
+CONDA_EXE=/goinfre/mboukhal/miniconda3/bin/conda
+CONDA_PYTHON_EXE=/goinfre/mboukhal/miniconda3/bin/python
+CONDA_SHLVL=0
+GIT_ASKPASS=/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass.sh
+HOME=/Users/mboukhal
+HOMEBREW_CACHE=/tmp/mboukhal/Homebrew/Caches
+HOMEBREW_TEMP=/tmp/mboukhal/Homebrew/Temp
+JAVA_HOME=/Applications/Android Studio.app/Contents/jre/Contents/Home
+LANG=en_US.UTF-8
+LESS=-R
+LOGNAME=mboukhal
+LSCOLORS=Gxfxcxdxbxegedabagacad
+OLDPWD=/Users/mboukhal/Desktop/minishell/tester/test
+ORIGINAL_XDG_CURRENT_DESKTOP=undefined
+PAGER=less
+PATH=/Users/mboukhal/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Users/mboukhal/.brew/bin:/goinfre/mboukhal/miniconda3/condabin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin
+PWD=/Users/mboukhal/Desktop/minishell/tester
+SECURITYSESSIONID=186a8
+SHELL=/bin/zsh
+SHLVL=3
+SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.n0qNfwqQ9k/Listeners
+TERM=xterm-256color
+TERM_PROGRAM=vscode
+TERM_PROGRAM_VERSION=1.67.2
+TMPDIR=/var/folders/zz/zyxvpxvq6csfxvn_n0000j7w00049z/T/
+USER=mboukhal
+VSCODE_GIT_ASKPASS_EXTRA_ARGS=--ms-enable-electron-run-as-node
+VSCODE_GIT_ASKPASS_MAIN=/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass-main.js
+VSCODE_GIT_ASKPASS_NODE=/Applications/Visual Studio Code.app/Contents/MacOS/Electron
+VSCODE_GIT_IPC_HANDLE=/var/folders/zz/zyxvpxvq6csfxvn_n0000j7w00049z/T/vscode-git-d7ae64e511.sock
+XPC_FLAGS=0x0
+XPC_SERVICE_NAME=0
+ZSH=/Users/mboukhal/.oh-my-zsh
+_CE_CONDA=
+_CE_M=
+__CF_USER_TEXT_ENCODING=0x113F:0x0:0x0
+# minishell: stderr
+scripts/helper.sh: line 130: 65748 Done                    echo "$1; exit"
+     65749 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: exit 0
+---------------------------------
+# minishell: stdout
+|2147483647|
+			[0]| |
+[exit 0] [4] | |
+<exit 0>
+----------------------
+			[1]| |
+[exit] [3] |i|
+
+
+	|exit|	
+
+
+<exxit>
+----------------------
 # bash     : stdout
 # minishell: stderr
 # bash     : stderr
 # minishell: exit status = 0
 # bash     : exit status = 0
 ---------------------------------
-[OK] case: exit 1
+[KO] case: exit 1
 ---------------------------------
 # minishell: stdout
+|2147483647|
+			[0]| |
+[exit 1] [4] | |
+<exit 1>
+----------------------
+			[1]| |
+[exit] [3] |i|
+
+
+	|exit|	
+
+
+<exxit>
+----------------------
 # bash     : stdout
 # minishell: stderr
 # bash     : stderr
 # minishell: exit status = 1
 # bash     : exit status = 1
 ---------------------------------
-[OK] case: exit -1
+[KO] case: exit -1
 ---------------------------------
 # minishell: stdout
+|2147483647|
+			[0]| |
+[exit -1] [5] |-|
+<exit -1>
+----------------------
+			[1]| |
+[exit] [3] |i|
+
+
+	|exit|	
+
+
+<exxit>
+----------------------
 # bash     : stdout
 # minishell: stderr
 # bash     : stderr
 # minishell: exit status = 255
 # bash     : exit status = 255
 ---------------------------------
-[OK] case: exit 2147483647
+[KO] case: exit 2147483647
 ---------------------------------
 # minishell: stdout
+|2147483647|
+			[0]| |
+[exit 2147483647] [13] |4|
+<exit 2147483647>
+----------------------
+			[1]| |
+[exit] [3] |i|
+
+
+	|exit|	
+
+
+<exxit>
+----------------------
 # bash     : stdout
 # minishell: stderr
 # bash     : stderr
 # minishell: exit status = 255
 # bash     : exit status = 255
 ---------------------------------
-[OK] case: exit 2147483648
+[KO] case: exit 2147483648
 ---------------------------------
 # minishell: stdout
+|2147483647|
+			[0]| |
+[exit 2147483648] [13] |4|
+<exit 2147483648>
+----------------------
+			[1]| |
+[exit] [3] |i|
+
+
+	|exit|	
+
+
+<exxit>
+----------------------
 # bash     : stdout
 # minishell: stderr
 # bash     : stderr
 # minishell: exit status = 0
 # bash     : exit status = 0
 ---------------------------------
-[OK] case: exit -2147483648
+[KO] case: exit -2147483648
 ---------------------------------
 # minishell: stdout
+|2147483647|
+			[0]| |
+[exit -2147483648] [14] |4|
+<exit -2147483648>
+----------------------
+			[1]| |
+[exit] [3] |i|
+
+
+	|exit|	
+
+
+<exxit>
+----------------------
 # bash     : stdout
 # minishell: stderr
 # bash     : stderr
 # minishell: exit status = 0
 # bash     : exit status = 0
 ---------------------------------
-[OK] case: exit -2147483649
+[KO] case: exit -2147483649
 ---------------------------------
 # minishell: stdout
+|2147483647|
+			[0]| |
+[exit -2147483649] [14] |4|
+<exit -2147483649>
+----------------------
+			[1]| |
+[exit] [3] |i|
+
+
+	|exit|	
+
+
+<exxit>
+----------------------
 # bash     : stdout
 # minishell: stderr
 # bash     : stderr
@@ -65,6 +1852,20 @@
 [KO] case: exit 9223372036854775807
 ---------------------------------
 # minishell: stdout
+|2147483647|
+			[0]| |
+[exit 9223372036854775807] [22] |0|
+<exit 9223372036854775807>
+----------------------
+			[1]| |
+[exit] [3] |i|
+
+
+	|exit|	
+
+
+<exxit>
+----------------------
 # bash     : stdout
 # minishell: stderr
 minishell: exit: 9223372036854775807; exit: numeric argument required
@@ -75,6 +1876,20 @@ minishell: exit: 9223372036854775807; exit: numeric argument required
 [KO] case: exit 9223372036854775808
 ---------------------------------
 # minishell: stdout
+|2147483647|
+			[0]| |
+[exit 9223372036854775808] [22] |0|
+<exit 9223372036854775808>
+----------------------
+			[1]| |
+[exit] [3] |i|
+
+
+	|exit|	
+
+
+<exxit>
+----------------------
 # bash     : stdout
 # minishell: stderr
 minishell: exit: 9223372036854775808; exit: numeric argument required
@@ -86,6 +1901,20 @@ minishell: exit: 9223372036854775808: numeric argument required
 [KO] case: exit -9223372036854775808
 ---------------------------------
 # minishell: stdout
+|2147483647|
+			[0]| |
+[exit -9223372036854775808] [23] |0|
+<exit -9223372036854775808>
+----------------------
+			[1]| |
+[exit] [3] |i|
+
+
+	|exit|	
+
+
+<exxit>
+----------------------
 # bash     : stdout
 # minishell: stderr
 minishell: exit: -9223372036854775808; exit: numeric argument required
@@ -96,6 +1925,20 @@ minishell: exit: -9223372036854775808; exit: numeric argument required
 [KO] case: exit -9223372036854775809
 ---------------------------------
 # minishell: stdout
+|2147483647|
+			[0]| |
+[exit -9223372036854775809] [23] |0|
+<exit -9223372036854775809>
+----------------------
+			[1]| |
+[exit] [3] |i|
+
+
+	|exit|	
+
+
+<exxit>
+----------------------
 # bash     : stdout
 # minishell: stderr
 minishell: exit: -9223372036854775809; exit: numeric argument required
@@ -107,6 +1950,20 @@ minishell: exit: -9223372036854775809: numeric argument required
 [KO] case: exit -- 42
 ---------------------------------
 # minishell: stdout
+|2147483647|
+			[0]| |
+[exit -- 42] [8] |4|
+<exit -- 42>
+----------------------
+			[1]| |
+[exit] [3] |i|
+
+
+	|exit|	
+
+
+<exxit>
+----------------------
 # bash     : stdout
 # minishell: stderr
 # bash     : stderr
@@ -116,6 +1973,20 @@ minishell: exit: -9223372036854775809: numeric argument required
 [KO] case: exit " 42 "
 ---------------------------------
 # minishell: stdout
+|2147483647|
+			[0]| |
+[exit "        42           "] [26] | |
+<exit "        42           ">
+----------------------
+			[1]| |
+[exit] [3] |i|
+
+
+	|exit|	
+
+
+<exxit>
+----------------------
 # bash     : stdout
 # minishell: stderr
 minishell: exit: "        42           "; exit: numeric argument required
@@ -126,6 +1997,20 @@ minishell: exit: "        42           "; exit: numeric argument required
 [KO] case: exit -- -- 42
 ---------------------------------
 # minishell: stdout
+|2147483647|
+			[0]| |
+[exit -- -- 42] [11] |4|
+<exit -- -- 42>
+----------------------
+			[1]| |
+[exit] [3] |i|
+
+
+	|exit|	
+
+
+<exxit>
+----------------------
 # bash     : stdout
 # minishell: stderr
 # bash     : stderr
@@ -136,6 +2021,20 @@ minishell: exit: --: numeric argument required
 [KO] case: exit --42
 ---------------------------------
 # minishell: stdout
+|2147483647|
+			[0]| |
+[exit --42] [7] |4|
+<exit --42>
+----------------------
+			[1]| |
+[exit] [3] |i|
+
+
+	|exit|	
+
+
+<exxit>
+----------------------
 # bash     : stdout
 # minishell: stderr
 # bash     : stderr
@@ -146,6 +2045,20 @@ minishell: exit: --42: numeric argument required
 [KO] case: exit ++42
 ---------------------------------
 # minishell: stdout
+|2147483647|
+			[0]| |
+[exit ++42] [7] |4|
+<exit ++42>
+----------------------
+			[1]| |
+[exit] [3] |i|
+
+
+	|exit|	
+
+
+<exxit>
+----------------------
 # bash     : stdout
 # minishell: stderr
 # bash     : stderr
@@ -156,6 +2069,20 @@ minishell: exit: ++42: numeric argument required
 [KO] case: exit 42 42
 ---------------------------------
 # minishell: stdout
+|2147483647|
+			[0]| |
+[exit 42 42] [8] |4|
+<exit 42 42>
+----------------------
+			[1]| |
+[exit] [3] |i|
+
+
+	|exit|	
+
+
+<exxit>
+----------------------
 # bash     : stdout
 # minishell: stderr
 # bash     : stderr
@@ -166,6 +2093,20 @@ minishell: exit: too many arguments
 [KO] case: exit a
 ---------------------------------
 # minishell: stdout
+|2147483647|
+			[0]| |
+[exit a] [4] | |
+<exit a>
+----------------------
+			[1]| |
+[exit] [3] |i|
+
+
+	|exit|	
+
+
+<exxit>
+----------------------
 # bash     : stdout
 # minishell: stderr
 # bash     : stderr
@@ -176,6 +2117,20 @@ minishell: exit: a: numeric argument required
 [KO] case: exit 1a
 ---------------------------------
 # minishell: stdout
+|2147483647|
+			[0]| |
+[exit 1a] [5] |1|
+<exit 1a>
+----------------------
+			[1]| |
+[exit] [3] |i|
+
+
+	|exit|	
+
+
+<exxit>
+----------------------
 # bash     : stdout
 # minishell: stderr
 # bash     : stderr
@@ -186,6 +2141,20 @@ minishell: exit: 1a: numeric argument required
 [KO] case: exit +
 ---------------------------------
 # minishell: stdout
+|2147483647|
+			[0]| |
+[exit +] [4] | |
+<exit +>
+----------------------
+			[1]| |
+[exit] [3] |i|
+
+
+	|exit|	
+
+
+<exxit>
+----------------------
 # bash     : stdout
 # minishell: stderr
 # bash     : stderr
@@ -196,6 +2165,20 @@ minishell: exit: +: numeric argument required
 [KO] case: exit -
 ---------------------------------
 # minishell: stdout
+|2147483647|
+			[0]| |
+[exit -] [4] | |
+<exit ->
+----------------------
+			[1]| |
+[exit] [3] |i|
+
+
+	|exit|	
+
+
+<exxit>
+----------------------
 # bash     : stdout
 # minishell: stderr
 # bash     : stderr
@@ -206,6 +2189,20 @@ minishell: exit: -: numeric argument required
 [KO] case: exit " "
 ---------------------------------
 # minishell: stdout
+|2147483647|
+			[0]| |
+[exit "          "] [15] | |
+<exit "          ">
+----------------------
+			[1]| |
+[exit] [3] |i|
+
+
+	|exit|	
+
+
+<exxit>
+----------------------
 # bash     : stdout
 # minishell: stderr
 # bash     : stderr
@@ -216,6 +2213,20 @@ minishell: exit:           : numeric argument required
 [KO] case: exit 0 0;
 ---------------------------------
 # minishell: stdout
+|2147483647|
+			[0]| |
+[exit 0 0] [6] | |
+<exit 0 0>
+----------------------
+			[1]| |
+[exit] [3] |i|
+
+
+	|exit|	
+
+
+<exxit>
+----------------------
 # bash     : stdout
 # minishell: stderr
 # bash     : stderr
@@ -226,6 +2237,29 @@ minishell: syntax error near unexpected token `;;'
 [KO] case: exit 0 0; exit
 ---------------------------------
 # minishell: stdout
+|2147483647|
+			[0]| |
+[exit 0 0] [6] | |
+<exit 0 0>
+----------------------
+			[1]| |
+[exit] [3] |i|
+
+
+	|exit|	
+
+
+<exxit>
+----------------------
+			[1]| |
+[exit] [3] |i|
+
+
+	|exit|	
+
+
+<exxit>
+----------------------
 # bash     : stdout
 # minishell: stderr
 # bash     : stderr
@@ -236,6 +2270,38 @@ minishell: exit: too many arguments
 [KO] case: exit 0 0; echo "this message should not be displayed" 2> file; ls
 ---------------------------------
 # minishell: stdout
+|2147483647|
+			[0]| |
+[exit 0 0] [6] | |
+<exit 0 0>
+----------------------
+			[1]| |
+[echo "this message should not be displayed" 2> file] [50] |l|
+
+
+	|echo "this message should not be displayed" 2> file|	
+
+
+<echo "this message should not be displayed" 2> fiile>
+----------------------
+			[1]| |
+[ls] [1] |l|
+
+
+	|ls|	
+
+
+< ls>
+----------------------
+			[1]| |
+[exit] [3] |i|
+
+
+	|exit|	
+
+
+<exxit>
+----------------------
 # bash     : stdout
 # minishell: stderr
 minishell: exit: 0 0; echo "this message should not be displayed" 2> file; ls; exit: numeric argument required
@@ -247,6 +2313,20 @@ minishell: exit: too many arguments
 [KO] case: exit 0 0 | echo hello
 ---------------------------------
 # minishell: stdout
+|2147483647|
+			[0]| |
+[exit 0 0 | echo hello] [19] |l|
+<exit 0 0 | echo hello>
+----------------------
+			[1]| |
+[exit] [3] |i|
+
+
+	|exit|	
+
+
+<exxit>
+----------------------
 # bash     : stdout
 hello
 # minishell: stderr
@@ -255,3 +2335,2404 @@ minishell: exit: 0 0 | echo hello; exit: numeric argument required
 minishell: exit: too many arguments
 # minishell: exit status = 255
 # bash     : exit status = 0
+---------------------------------
+[KO] case: export HELLO=hello; echo $HELLO
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+hello
+# minishell: stderr
+scripts/helper.sh: line 130: 66508 Done                    echo "$1; exit"
+     66509 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export HELLO=hello; echo $hello
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+
+# minishell: stderr
+scripts/helper.sh: line 130: 66536 Done                    echo "$1; exit"
+     66537 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo $
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+$
+# minishell: stderr
+scripts/helper.sh: line 130: 66564 Done                    echo "$1; exit"
+     66565 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo "$"
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+$
+# minishell: stderr
+scripts/helper.sh: line 130: 66592 Done                    echo "$1; exit"
+     66593 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo '$'
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+$
+# minishell: stderr
+scripts/helper.sh: line 130: 66620 Done                    echo "$1; exit"
+     66621 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo \$
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+$
+# minishell: stderr
+scripts/helper.sh: line 130: 66649 Done                    echo "$1; exit"
+     66650 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo "\$"
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+$
+# minishell: stderr
+scripts/helper.sh: line 130: 66677 Done                    echo "$1; exit"
+     66678 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export HELLO=hello; echo \$HELLO
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+$HELLO
+# minishell: stderr
+scripts/helper.sh: line 130: 66705 Done                    echo "$1; exit"
+     66706 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export HELLO=hello; echo \\$HELLO
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+\hello
+# minishell: stderr
+scripts/helper.sh: line 130: 66733 Done                    echo "$1; exit"
+     66734 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export HELLO=hello; echo "$HELLO"
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+hello
+# minishell: stderr
+scripts/helper.sh: line 130: 66761 Done                    echo "$1; exit"
+     66762 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export HELLO=hello; echo "\$HELLO"
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+$HELLO
+# minishell: stderr
+scripts/helper.sh: line 130: 66789 Done                    echo "$1; exit"
+     66790 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export HELLO=hello; echo "\\$HELLO"
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+\hello
+# minishell: stderr
+scripts/helper.sh: line 130: 66817 Done                    echo "$1; exit"
+     66818 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export HELLO=hello; echo \\"$HELLO"
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+\hello
+# minishell: stderr
+scripts/helper.sh: line 130: 66845 Done                    echo "$1; exit"
+     66846 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export HELLO=hello; echo "\"\"$HELLO"
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+""hello
+# minishell: stderr
+scripts/helper.sh: line 130: 66879 Done                    echo "$1; exit"
+     66880 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export TEST=ech; "$TEST"o hello
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+hello
+# minishell: stderr
+scripts/helper.sh: line 130: 66907 Done                    echo "$1; exit"
+     66908 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export TEST="echo hello"; $TEST
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+hello
+# minishell: stderr
+scripts/helper.sh: line 130: 66935 Done                    echo "$1; exit"
+     66936 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export TEST='echo hello'; $TEST
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+hello
+# minishell: stderr
+scripts/helper.sh: line 130: 66963 Done                    echo "$1; exit"
+     66964 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export TEST="\$\"echo hello\""; $TEST
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 66992 Done                    echo "$1; exit"
+     66993 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: $"echo: command not found
+# minishell: exit status = 139
+# bash     : exit status = 127
+---------------------------------
+[KO] case: export TEST="echo hello"; export TEST2="\$TEST"; $TEST2
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 67021 Done                    echo "$1; exit"
+     67022 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: $TEST: command not found
+# minishell: exit status = 139
+# bash     : exit status = 127
+---------------------------------
+[KO] case: export abcdefghijklmnopqrstuvwxyz_ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890=hello; echo $abcdefghijklmnopqrstuvwxyz_ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+hello
+# minishell: stderr
+scripts/helper.sh: line 130: 67049 Done                    echo "$1; exit"
+     67050 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export TEST="export TEST=echo"; $TEST hello; $TEST hello
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+hello
+# minishell: stderr
+scripts/helper.sh: line 130: 67077 Done                    echo "$1; exit"
+     67078 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export | grep -v -E '^declare -x _='
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+declare -x A="hello"
+declare -x ANDROID_SDK_HOME="/Users/mboukhal/Library/Android/sdk"
+declare -x Apple_PubSub_Socket_Render="/private/tmp/com.apple.launchd.tknBkUQmr2/Render"
+declare -x COLORTERM="truecolor"
+declare -x COMMAND_MODE="unix2003"
+declare -x CONDA_EXE="/goinfre/mboukhal/miniconda3/bin/conda"
+declare -x CONDA_PYTHON_EXE="/goinfre/mboukhal/miniconda3/bin/python"
+declare -x CONDA_SHLVL="0"
+declare -x GIT_ASKPASS="/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass.sh"
+declare -x HOME="/Users/mboukhal"
+declare -x HOMEBREW_CACHE="/tmp/mboukhal/Homebrew/Caches"
+declare -x HOMEBREW_TEMP="/tmp/mboukhal/Homebrew/Temp"
+declare -x JAVA_HOME="/Applications/Android Studio.app/Contents/jre/Contents/Home"
+declare -x LANG="en_US.UTF-8"
+declare -x LESS="-R"
+declare -x LOGNAME="mboukhal"
+declare -x LSCOLORS="Gxfxcxdxbxegedabagacad"
+declare -x OLDPWD
+declare -x ORIGINAL_XDG_CURRENT_DESKTOP="undefined"
+declare -x PAGER="less"
+declare -x PATH="/Users/mboukhal/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Users/mboukhal/.brew/bin:/goinfre/mboukhal/miniconda3/condabin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin"
+declare -x PWD="/Users/mboukhal/Desktop/minishell/tester/test"
+declare -x SECURITYSESSIONID="186a8"
+declare -x SHELL="/bin/zsh"
+declare -x SHLVL="3"
+declare -x SSH_AUTH_SOCK="/private/tmp/com.apple.launchd.n0qNfwqQ9k/Listeners"
+declare -x TERM="xterm-256color"
+declare -x TERM_PROGRAM="vscode"
+declare -x TERM_PROGRAM_VERSION="1.67.2"
+declare -x TMPDIR="/var/folders/zz/zyxvpxvq6csfxvn_n0000j7w00049z/T/"
+declare -x USER="mboukhal"
+declare -x VSCODE_GIT_ASKPASS_EXTRA_ARGS="--ms-enable-electron-run-as-node"
+declare -x VSCODE_GIT_ASKPASS_MAIN="/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass-main.js"
+declare -x VSCODE_GIT_ASKPASS_NODE="/Applications/Visual Studio Code.app/Contents/MacOS/Electron"
+declare -x VSCODE_GIT_IPC_HANDLE="/var/folders/zz/zyxvpxvq6csfxvn_n0000j7w00049z/T/vscode-git-d7ae64e511.sock"
+declare -x XPC_FLAGS="0x0"
+declare -x XPC_SERVICE_NAME="0"
+declare -x ZSH="/Users/mboukhal/.oh-my-zsh"
+declare -x _CE_CONDA=""
+declare -x _CE_M=""
+declare -x __CF_USER_TEXT_ENCODING="0x113F:0x0:0x0"
+# minishell: stderr
+scripts/helper.sh: line 130: 67108 Done                    echo "$1; exit"
+     67109 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export 1 _+ _OK _2? _OK2=VAR =NG OK3=; export | grep -v -E '^declare -x _='
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+declare -x A="hello"
+declare -x ANDROID_SDK_HOME="/Users/mboukhal/Library/Android/sdk"
+declare -x Apple_PubSub_Socket_Render="/private/tmp/com.apple.launchd.tknBkUQmr2/Render"
+declare -x COLORTERM="truecolor"
+declare -x COMMAND_MODE="unix2003"
+declare -x CONDA_EXE="/goinfre/mboukhal/miniconda3/bin/conda"
+declare -x CONDA_PYTHON_EXE="/goinfre/mboukhal/miniconda3/bin/python"
+declare -x CONDA_SHLVL="0"
+declare -x GIT_ASKPASS="/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass.sh"
+declare -x HOME="/Users/mboukhal"
+declare -x HOMEBREW_CACHE="/tmp/mboukhal/Homebrew/Caches"
+declare -x HOMEBREW_TEMP="/tmp/mboukhal/Homebrew/Temp"
+declare -x JAVA_HOME="/Applications/Android Studio.app/Contents/jre/Contents/Home"
+declare -x LANG="en_US.UTF-8"
+declare -x LESS="-R"
+declare -x LOGNAME="mboukhal"
+declare -x LSCOLORS="Gxfxcxdxbxegedabagacad"
+declare -x OK3=""
+declare -x OLDPWD
+declare -x ORIGINAL_XDG_CURRENT_DESKTOP="undefined"
+declare -x PAGER="less"
+declare -x PATH="/Users/mboukhal/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Users/mboukhal/.brew/bin:/goinfre/mboukhal/miniconda3/condabin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin"
+declare -x PWD="/Users/mboukhal/Desktop/minishell/tester/test"
+declare -x SECURITYSESSIONID="186a8"
+declare -x SHELL="/bin/zsh"
+declare -x SHLVL="3"
+declare -x SSH_AUTH_SOCK="/private/tmp/com.apple.launchd.n0qNfwqQ9k/Listeners"
+declare -x TERM="xterm-256color"
+declare -x TERM_PROGRAM="vscode"
+declare -x TERM_PROGRAM_VERSION="1.67.2"
+declare -x TMPDIR="/var/folders/zz/zyxvpxvq6csfxvn_n0000j7w00049z/T/"
+declare -x USER="mboukhal"
+declare -x VSCODE_GIT_ASKPASS_EXTRA_ARGS="--ms-enable-electron-run-as-node"
+declare -x VSCODE_GIT_ASKPASS_MAIN="/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass-main.js"
+declare -x VSCODE_GIT_ASKPASS_NODE="/Applications/Visual Studio Code.app/Contents/MacOS/Electron"
+declare -x VSCODE_GIT_IPC_HANDLE="/var/folders/zz/zyxvpxvq6csfxvn_n0000j7w00049z/T/vscode-git-d7ae64e511.sock"
+declare -x XPC_FLAGS="0x0"
+declare -x XPC_SERVICE_NAME="0"
+declare -x ZSH="/Users/mboukhal/.oh-my-zsh"
+declare -x _CE_CONDA=""
+declare -x _CE_M=""
+declare -x _OK
+declare -x _OK2="VAR"
+declare -x __CF_USER_TEXT_ENCODING="0x113F:0x0:0x0"
+# minishell: stderr
+scripts/helper.sh: line 130: 67138 Done                    echo "$1; exit"
+     67139 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: export: `1': not a valid identifier
+minishell: export: `_+': not a valid identifier
+minishell: export: `_2?': not a valid identifier
+minishell: export: `=NG': not a valid identifier
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export dquote='"' dollar='$' backslash='\' backquote='`' newline='\n'; export | grep -v -E '^declare -x _='
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+declare -x A="hello"
+declare -x ANDROID_SDK_HOME="/Users/mboukhal/Library/Android/sdk"
+declare -x Apple_PubSub_Socket_Render="/private/tmp/com.apple.launchd.tknBkUQmr2/Render"
+declare -x COLORTERM="truecolor"
+declare -x COMMAND_MODE="unix2003"
+declare -x CONDA_EXE="/goinfre/mboukhal/miniconda3/bin/conda"
+declare -x CONDA_PYTHON_EXE="/goinfre/mboukhal/miniconda3/bin/python"
+declare -x CONDA_SHLVL="0"
+declare -x GIT_ASKPASS="/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass.sh"
+declare -x HOME="/Users/mboukhal"
+declare -x HOMEBREW_CACHE="/tmp/mboukhal/Homebrew/Caches"
+declare -x HOMEBREW_TEMP="/tmp/mboukhal/Homebrew/Temp"
+declare -x JAVA_HOME="/Applications/Android Studio.app/Contents/jre/Contents/Home"
+declare -x LANG="en_US.UTF-8"
+declare -x LESS="-R"
+declare -x LOGNAME="mboukhal"
+declare -x LSCOLORS="Gxfxcxdxbxegedabagacad"
+declare -x OLDPWD
+declare -x ORIGINAL_XDG_CURRENT_DESKTOP="undefined"
+declare -x PAGER="less"
+declare -x PATH="/Users/mboukhal/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Users/mboukhal/.brew/bin:/goinfre/mboukhal/miniconda3/condabin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin"
+declare -x PWD="/Users/mboukhal/Desktop/minishell/tester/test"
+declare -x SECURITYSESSIONID="186a8"
+declare -x SHELL="/bin/zsh"
+declare -x SHLVL="3"
+declare -x SSH_AUTH_SOCK="/private/tmp/com.apple.launchd.n0qNfwqQ9k/Listeners"
+declare -x TERM="xterm-256color"
+declare -x TERM_PROGRAM="vscode"
+declare -x TERM_PROGRAM_VERSION="1.67.2"
+declare -x TMPDIR="/var/folders/zz/zyxvpxvq6csfxvn_n0000j7w00049z/T/"
+declare -x USER="mboukhal"
+declare -x VSCODE_GIT_ASKPASS_EXTRA_ARGS="--ms-enable-electron-run-as-node"
+declare -x VSCODE_GIT_ASKPASS_MAIN="/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass-main.js"
+declare -x VSCODE_GIT_ASKPASS_NODE="/Applications/Visual Studio Code.app/Contents/MacOS/Electron"
+declare -x VSCODE_GIT_IPC_HANDLE="/var/folders/zz/zyxvpxvq6csfxvn_n0000j7w00049z/T/vscode-git-d7ae64e511.sock"
+declare -x XPC_FLAGS="0x0"
+declare -x XPC_SERVICE_NAME="0"
+declare -x ZSH="/Users/mboukhal/.oh-my-zsh"
+declare -x _CE_CONDA=""
+declare -x _CE_M=""
+declare -x __CF_USER_TEXT_ENCODING="0x113F:0x0:0x0"
+declare -x backquote="\`"
+declare -x backslash="\\"
+declare -x dollar="\$"
+declare -x dquote="\""
+declare -x newline="\\n"
+# minishell: stderr
+scripts/helper.sh: line 130: 67168 Done                    echo "$1; exit"
+     67169 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export APPEND=1; export APPEND+=2; export | grep APPEND
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+declare -x APPEND="12"
+# minishell: stderr
+scripts/helper.sh: line 130: 67198 Done                    echo "$1; exit"
+     67199 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export APPEND_NONE=1; export APPEND_NONE+=; export | grep APPEND_NONE
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+declare -x APPEND_NONE="1"
+# minishell: stderr
+scripts/helper.sh: line 130: 67228 Done                    echo "$1; exit"
+     67229 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export APPEND_NONE=; export APPEND_NONE=; export APPEND_NONE+=; export | grep APPEND_NONE
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+declare -x APPEND_NONE=""
+# minishell: stderr
+scripts/helper.sh: line 130: 67258 Done                    echo "$1; exit"
+     67259 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export APPEND_EMPTY=""; export APPEND_EMPTY=""; export APPEND_EMPTY=""; export | grep APPEND_EMPTY
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+declare -x APPEND_EMPTY=""
+# minishell: stderr
+scripts/helper.sh: line 130: 67288 Done                    echo "$1; exit"
+     67289 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export OVERWRITE=42; export OVERWRITE=a; export | grep OVERWRITE
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+declare -x OVERWRITE="a"
+# minishell: stderr
+scripts/helper.sh: line 130: 67318 Done                    echo "$1; exit"
+     67319 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export A=B=C=D; export | grep A
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+declare -x A="B=C=D"
+declare -x ANDROID_SDK_HOME="/Users/mboukhal/Library/Android/sdk"
+declare -x Apple_PubSub_Socket_Render="/private/tmp/com.apple.launchd.tknBkUQmr2/Render"
+declare -x COMMAND_MODE="unix2003"
+declare -x CONDA_EXE="/goinfre/mboukhal/miniconda3/bin/conda"
+declare -x CONDA_PYTHON_EXE="/goinfre/mboukhal/miniconda3/bin/python"
+declare -x CONDA_SHLVL="0"
+declare -x GIT_ASKPASS="/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass.sh"
+declare -x HOMEBREW_CACHE="/tmp/mboukhal/Homebrew/Caches"
+declare -x JAVA_HOME="/Applications/Android Studio.app/Contents/jre/Contents/Home"
+declare -x LANG="en_US.UTF-8"
+declare -x LOGNAME="mboukhal"
+declare -x ORIGINAL_XDG_CURRENT_DESKTOP="undefined"
+declare -x PAGER="less"
+declare -x PATH="/Users/mboukhal/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Users/mboukhal/.brew/bin:/goinfre/mboukhal/miniconda3/condabin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin"
+declare -x SSH_AUTH_SOCK="/private/tmp/com.apple.launchd.n0qNfwqQ9k/Listeners"
+declare -x TERM_PROGRAM="vscode"
+declare -x TERM_PROGRAM_VERSION="1.67.2"
+declare -x VSCODE_GIT_ASKPASS_EXTRA_ARGS="--ms-enable-electron-run-as-node"
+declare -x VSCODE_GIT_ASKPASS_MAIN="/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass-main.js"
+declare -x VSCODE_GIT_ASKPASS_NODE="/Applications/Visual Studio Code.app/Contents/MacOS/Electron"
+declare -x VSCODE_GIT_IPC_HANDLE="/var/folders/zz/zyxvpxvq6csfxvn_n0000j7w00049z/T/vscode-git-d7ae64e511.sock"
+declare -x XPC_FLAGS="0x0"
+declare -x XPC_SERVICE_NAME="0"
+declare -x _CE_CONDA=""
+# minishell: stderr
+scripts/helper.sh: line 130: 67349 Done                    echo "$1; exit"
+     67350 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export PATH; export | grep PATH
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+declare -x PATH="/Users/mboukhal/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Users/mboukhal/.brew/bin:/goinfre/mboukhal/miniconda3/condabin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin"
+# minishell: stderr
+scripts/helper.sh: line 130: 67379 Done                    echo "$1; exit"
+     67380 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export PWD; export | grep PWD
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+declare -x OLDPWD
+declare -x PWD="/Users/mboukhal/Desktop/minishell/tester/test"
+# minishell: stderr
+scripts/helper.sh: line 130: 67409 Done                    echo "$1; exit"
+     67410 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export OLDPWD; export | grep OLDPWD
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+declare -x OLDPWD
+# minishell: stderr
+scripts/helper.sh: line 130: 67439 Done                    echo "$1; exit"
+     67440 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: unset PWD; cd ..; export | grep PWD
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+declare -x OLDPWD=""
+# minishell: stderr
+scripts/helper.sh: line 130: 67469 Done                    echo "$1; exit"
+     67470 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: unset OLDPWD; cd ..; export | grep OLDPWD
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 67499 Done                    echo "$1; exit"
+     67500 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 1
+---------------------------------
+[KO] case: unset PWD; cd ..; export PWD=new_value; export | grep PWD
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+declare -x OLDPWD=""
+declare -x PWD="new_value"
+# minishell: stderr
+scripts/helper.sh: line 130: 67529 Done                    echo "$1; exit"
+     67530 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: unset OLDPWD; cd ..; export OLDPWD=new_value; export | grep OLDPWD
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+declare -x OLDPWD="new_value"
+# minishell: stderr
+scripts/helper.sh: line 130: 67559 Done                    echo "$1; exit"
+     67560 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: unset PWD; cd ..; export PWD; export | grep PWD
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+declare -x OLDPWD=""
+declare -x PWD="/Users/mboukhal/Desktop/minishell/tester"
+# minishell: stderr
+scripts/helper.sh: line 130: 67589 Done                    echo "$1; exit"
+     67590 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: unset OLDPWD; cd ..; export OLDPWD; export | grep OLDPWD
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+declare -x OLDPWD="/Users/mboukhal/Desktop/minishell/tester/test"
+# minishell: stderr
+scripts/helper.sh: line 130: 67619 Done                    echo "$1; exit"
+     67620 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export =
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 67649 Done                    echo "$1; exit"
+     67650 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: export: `=': not a valid identifier
+# minishell: exit status = 139
+# bash     : exit status = 1
+---------------------------------
+[KO] case: export PATH=":" ; ls [setup: cp /bin/ls .; chmod 000 ls;]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 67683 Done                    echo "$1; exit"
+     67684 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: ./ls: Permission denied
+# minishell: exit status = 139
+# bash     : exit status = 126
+---------------------------------
+[KO] case: export PATH=":/" ; ls [setup: cp /bin/ls .; chmod 000 ls;]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 67718 Done                    echo "$1; exit"
+     67719 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: ./ls: Permission denied
+# minishell: exit status = 139
+# bash     : exit status = 126
+---------------------------------
+[KO] case: export PATH="::" ; ls [setup: cp /bin/ls .; chmod 000 ls;]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 67753 Done                    echo "$1; exit"
+     67754 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: ./ls: Permission denied
+# minishell: exit status = 139
+# bash     : exit status = 126
+---------------------------------
+[KO] case: export PATH="/:" ; ls [setup: cp /bin/ls .; chmod 000 ls;]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 67788 Done                    echo "$1; exit"
+     67789 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: ./ls: Permission denied
+# minishell: exit status = 139
+# bash     : exit status = 126
+---------------------------------
+[KO] case: export PATH="/bin:" ; ls [setup: cp /bin/ls .; chmod 000 ls;]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+ls
+# minishell: stderr
+scripts/helper.sh: line 130: 67823 Done                    echo "$1; exit"
+     67824 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export PATH=":/bin" ; ls [setup: cp /bin/ls .; chmod 000 ls;]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+ls
+# minishell: stderr
+scripts/helper.sh: line 130: 67858 Done                    echo "$1; exit"
+     67859 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export PATH="::/bin::" ; ls [setup: cp /bin/ls .; chmod 000 ls;]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+ls
+# minishell: stderr
+scripts/helper.sh: line 130: 67893 Done                    echo "$1; exit"
+     67894 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export PATH="/bin:" ; ls [setup: cp /bin/ls .; chmod 000 ls;]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+ls
+# minishell: stderr
+scripts/helper.sh: line 130: 67928 Done                    echo "$1; exit"
+     67929 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export PATH="hello:" ; ls [setup: cp /bin/ls .; chmod 000 ls;]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 67963 Done                    echo "$1; exit"
+     67964 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: ./ls: Permission denied
+# minishell: exit status = 139
+# bash     : exit status = 126
+---------------------------------
+[KO] case: export PATH=""; nosuchfile
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 67994 Done                    echo "$1; exit"
+     67995 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: nosuchfile: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 127
+---------------------------------
+[KO] case: export PATH=''; nosuchfile
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 68023 Done                    echo "$1; exit"
+     68024 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: nosuchfile: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 127
+---------------------------------
+[KO] case: unset PATH; nosuchfile
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 68053 Done                    echo "$1; exit"
+     68054 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: nosuchfile: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 127
+---------------------------------
+[KO] case: unset PATH; export PATH; nosuchfile
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 68082 Done                    echo "$1; exit"
+     68083 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: nosuchfile: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 127
+---------------------------------
+[KO] case: unset PATH; export PATH=; nosuchfile
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 68111 Done                    echo "$1; exit"
+     68112 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: nosuchfile: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 127
+---------------------------------
+[KO] case: export PATH=":a:b"; cmd [setup: mkdir a b; printf '#!/bin/bash\necho a' > a/cmd; printf '#!/bin/bash\necho b' > b/cmd; printf '#!/bin/bash\necho cwd' > cmd; chmod +x a/cmd b/cmd cmd]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+cwd
+# minishell: stderr
+scripts/helper.sh: line 130: 68145 Done                    echo "$1; exit"
+     68146 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export PATH="b:a:"; cmd [setup: mkdir a b; printf '#!/bin/bash\necho a' > a/cmd; printf '#!/bin/bash\necho b' > b/cmd; printf '#!/bin/bash\necho cwd' > cmd; chmod +x a/cmd b/cmd cmd]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+b
+# minishell: stderr
+scripts/helper.sh: line 130: 68180 Done                    echo "$1; exit"
+     68181 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export PATH="a:b"; cmd [setup: mkdir a b; printf '#!/bin/bash\necho a' > a/cmd; printf '#!/bin/bash\necho b' > b/cmd; printf '#!/bin/bash\necho cwd' > cmd; chmod +x a/cmd b/cmd cmd]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+a
+# minishell: stderr
+scripts/helper.sh: line 130: 68215 Done                    echo "$1; exit"
+     68216 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export PATH="no_such_dir:a"; cmd [setup: mkdir a; printf '#!/bin/bash\necho a' > a/cmd; printf '#!/bin/bash\necho cwd' > cmd; chmod +x a/cmd b/cmd cmd]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+a
+# minishell: stderr
+chmod: b/cmd: No such file or directory
+scripts/helper.sh: line 130: 68250 Done                    echo "$1; exit"
+     68251 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+chmod: b/cmd: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: export PATH="no_such_dir1:no_such_dir2:"; cmd [setup: printf '#!/bin/bash\necho cwd' > cmd; chmod +x a/cmd b/cmd cmd]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+cwd
+# minishell: stderr
+chmod: a/cmd: No such file or directory
+chmod: b/cmd: No such file or directory
+scripts/helper.sh: line 130: 68283 Done                    echo "$1; exit"
+     68284 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+chmod: a/cmd: No such file or directory
+chmod: b/cmd: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo $OLDPWD
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+
+# minishell: stderr
+scripts/helper.sh: line 130: 68314 Done                    echo "$1; exit"
+     68315 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo $OLDPWD [setup: export OLDPWD=/]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+
+# minishell: stderr
+scripts/helper.sh: line 130: 68342 Done                    echo "$1; exit"
+     68343 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo $PWD
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test
+# minishell: stderr
+scripts/helper.sh: line 130: 68372 Done                    echo "$1; exit"
+     68373 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo $PWD [setup: export PWD=/]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test
+# minishell: stderr
+scripts/helper.sh: line 130: 68400 Done                    echo "$1; exit"
+     68401 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo $PWD [setup: mkdir dir; ln -s dir symdir; cd symdir]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test
+# minishell: stderr
+scripts/helper.sh: line 130: 68434 Done                    echo "$1; exit"
+     68435 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: pwd
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test
+# minishell: stderr
+scripts/helper.sh: line 130: 68464 Done                    echo "$1; exit"
+     68465 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: pwd [setup: export PWD=/]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test
+# minishell: stderr
+scripts/helper.sh: line 130: 68492 Done                    echo "$1; exit"
+     68493 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: pwd [setup: mkdir dir; ln -s dir symdir; cd symdir]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test
+# minishell: stderr
+scripts/helper.sh: line 130: 68526 Done                    echo "$1; exit"
+     68527 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: pwd; echo $PWD; echo $OLDPWD [setup: export PWD=; export OLDPWD=;]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test
+/Users/mboukhal/Desktop/minishell/tester/test
+
+# minishell: stderr
+scripts/helper.sh: line 130: 68556 Done                    echo "$1; exit"
+     68557 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: mkdir dir; cd dir; pwd; echo $PWD; echo $OLDPWD [setup: export PWD=; export OLDPWD=;]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/dir
+/Users/mboukhal/Desktop/minishell/tester/test/dir
+/Users/mboukhal/Desktop/minishell/tester/test
+# minishell: stderr
+scripts/helper.sh: line 130: 68593 Done                    echo "$1; exit"
+     68594 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: mkdir dir; cd dir; cd ..; pwd; echo $PWD; echo $OLDPWD [setup: export PWD=; export OLDPWD=;]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test
+/Users/mboukhal/Desktop/minishell/tester/test
+/Users/mboukhal/Desktop/minishell/tester/test/dir
+# minishell: stderr
+scripts/helper.sh: line 130: 68624 Done                    echo "$1; exit"
+     68625 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: cd; pwd; echo $PWD; echo $OLDPWD [setup: export PWD=; export OLDPWD=;]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal
+/Users/mboukhal
+/Users/mboukhal/Desktop/minishell/tester/test
+# minishell: stderr
+scripts/helper.sh: line 130: 68654 Done                    echo "$1; exit"
+     68655 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: mkdir dir; cd dir; rmdir ../dir; cd ./; pwd; echo $PWD; echo $OLDPWD [setup: export PWD=; export OLDPWD=;]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/dir/./
+/Users/mboukhal/Desktop/minishell/tester/test/dir/./
+/Users/mboukhal/Desktop/minishell/tester/test/dir
+# minishell: stderr
+scripts/helper.sh: line 130: 68686 Done                    echo "$1; exit"
+     68687 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+cd: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: mkdir dir; cd dir; rmdir ../dir; cd ./; cd ././././././//////////./././././././//////./; pwd; echo $PWD; echo $OLDPWD [setup: export PWD=; export OLDPWD=;]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/dir/./././././././//////////./././././././//////./
+/Users/mboukhal/Desktop/minishell/tester/test/dir/./././././././//////////./././././././//////./
+/Users/mboukhal/Desktop/minishell/tester/test/dir/./
+# minishell: stderr
+scripts/helper.sh: line 130: 68718 Done                    echo "$1; exit"
+     68719 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+cd: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+cd: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: mkdir dir; cd dir; rmdir ../dir; cd ./; cd ../; pwd; echo $PWD; echo $OLDPWD [setup: export PWD=; export OLDPWD=;]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test
+/Users/mboukhal/Desktop/minishell/tester/test
+/Users/mboukhal/Desktop/minishell/tester/test/dir/./
+# minishell: stderr
+scripts/helper.sh: line 130: 68750 Done                    echo "$1; exit"
+     68751 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+cd: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: mkdir dir; ln -s dir link; cd link; rmdir ../dir; cd ./; pwd; echo $PWD; echo $OLDPWD [setup: export PWD=; export OLDPWD=;]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/link/./
+/Users/mboukhal/Desktop/minishell/tester/test/link/./
+/Users/mboukhal/Desktop/minishell/tester/test/link
+# minishell: stderr
+scripts/helper.sh: line 130: 68784 Done                    echo "$1; exit"
+     68785 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+cd: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: mkdir dir; ln -s dir link; cd link; rmdir ../dir; cd ./; cd ../; pwd; echo $PWD; echo $OLDPWD [setup: export PWD=; export OLDPWD=;]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test
+/Users/mboukhal/Desktop/minishell/tester/test
+/Users/mboukhal/Desktop/minishell/tester/test/link/./
+# minishell: stderr
+scripts/helper.sh: line 130: 68817 Done                    echo "$1; exit"
+     68818 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+cd: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: mkdir DIR; cd dir; rmdir ../DIR; cd ./; pwd; echo $PWD; echo $OLDPWD [setup: export PWD=; export OLDPWD=;]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/dir/./
+/Users/mboukhal/Desktop/minishell/tester/test/dir/./
+/Users/mboukhal/Desktop/minishell/tester/test/dir
+# minishell: stderr
+scripts/helper.sh: line 130: 68849 Done                    echo "$1; exit"
+     68850 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+cd: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: mkdir DIR; cd dir; rmdir ../DIR; cd ./; cd ../; pwd; echo $PWD; echo $OLDPWD [setup: export PWD=; export OLDPWD=;]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test
+/Users/mboukhal/Desktop/minishell/tester/test
+/Users/mboukhal/Desktop/minishell/tester/test/dir/./
+# minishell: stderr
+scripts/helper.sh: line 130: 68881 Done                    echo "$1; exit"
+     68882 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+cd: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: mkdir dir; ln -s dir link; cd LINK; rmdir ../dir; cd ./; pwd; echo $PWD; echo $OLDPWD [setup: export PWD=; export OLDPWD=;]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test/LINK/./
+/Users/mboukhal/Desktop/minishell/tester/test/LINK/./
+/Users/mboukhal/Desktop/minishell/tester/test/LINK
+# minishell: stderr
+scripts/helper.sh: line 130: 68914 Done                    echo "$1; exit"
+     68915 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+cd: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: mkdir dir; ln -s dir link; cd LINK; rmdir ../dir; cd ./; cd ../; pwd; echo $PWD; echo $OLDPWD [setup: export PWD=; export OLDPWD=;]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+/Users/mboukhal/Desktop/minishell/tester/test
+/Users/mboukhal/Desktop/minishell/tester/test
+/Users/mboukhal/Desktop/minishell/tester/test/LINK/./
+# minishell: stderr
+scripts/helper.sh: line 130: 68947 Done                    echo "$1; exit"
+     68948 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+cd: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: > file
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 68978 Done                    echo "$1; exit"
+     68979 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: > file | cat < no_such_file
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 69008 Done                    echo "$1; exit"
+     69009 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: no_such_file: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 1
+---------------------------------
+[KO] case: echo hello > out1.txt > out2.txt > out3.txt 2> err1.txt 2> err2.txt 2> err3.txt; cat out1.txt out2.txt out3.txt err1.txt err2.txt err3.txt
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+hello
+# minishell: stderr
+scripts/helper.sh: line 130: 69037 Done                    echo "$1; exit"
+     69038 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo hello >> out1.txt >> out2.txt >> out3.txt 2>> err1.txt 2>> err2.txt 2>> err3.txt; cat out1.txt out2.txt out3.txt err1.txt err2.txt err3.txt
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+hello
+# minishell: stderr
+scripts/helper.sh: line 130: 69066 Done                    echo "$1; exit"
+     69067 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: ls > out1.txt > out2.txt > out3.txt 2> err1.txt 2> err2.txt 2> err3.txt; cat out1.txt out2.txt out3.txt err1.txt err2.txt err3.txt
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+err1.txt
+err2.txt
+err3.txt
+out1.txt
+out2.txt
+out3.txt
+# minishell: stderr
+scripts/helper.sh: line 130: 69096 Done                    echo "$1; exit"
+     69097 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: ls >> out1.txt >> out2.txt >> out3.txt 2>> err1.txt 2>> err2.txt 2>> err3.txt; cat out1.txt out2.txt out3.txt err1.txt err2.txt err3.txt
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+err1.txt
+err2.txt
+err3.txt
+out1.txt
+out2.txt
+out3.txt
+# minishell: stderr
+scripts/helper.sh: line 130: 69131 Done                    echo "$1; exit"
+     69132 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: ls no_such_file > out1.txt > out2.txt > out3.txt 2> err1.txt 2> err2.txt 2> err3.txt; cat out1.txt out2.txt out3.txt err1.txt err2.txt err3.txt
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+ls: no_such_file: No such file or directory
+# minishell: stderr
+scripts/helper.sh: line 130: 69161 Done                    echo "$1; exit"
+     69162 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: ls no_such_file >> out1.txt >> out2.txt >> out3.txt 2>> err1.txt 2>> err2.txt 2>> err3.txt; cat out1.txt out2.txt out3.txt err1.txt err2.txt err3.txt
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+ls: no_such_file: No such file or directory
+# minishell: stderr
+scripts/helper.sh: line 130: 69191 Done                    echo "$1; exit"
+     69192 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo a > out; echo b >> out; echo c >> out; echo d >> out; cat out
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+a
+b
+c
+d
+# minishell: stderr
+scripts/helper.sh: line 130: 69220 Done                    echo "$1; exit"
+     69221 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo a > out; echo b >> out; echo c >> out; echo d > out; cat out
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+d
+# minishell: stderr
+scripts/helper.sh: line 130: 69249 Done                    echo "$1; exit"
+     69250 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo hello 2147483647> file
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 69281 Done                    echo "$1; exit"
+     69282 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: 2147483647: Bad file descriptor
+# minishell: exit status = 139
+# bash     : exit status = 1
+---------------------------------
+[KO] case: echo hello 2147483648> file
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 69309 Done                    echo "$1; exit"
+     69310 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: file descriptor out of range: Bad file descriptor
+# minishell: exit status = 139
+# bash     : exit status = 1
+---------------------------------
+[KO] case: echo a > $NO_ENV | echo b [setup: unset NO_ENV]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+b
+# minishell: stderr
+scripts/helper.sh: line 130: 69339 Done                    echo "$1; exit"
+     69340 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: $NO_ENV: ambiguous redirect
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: ./a.out 3> file3 2> file2 1> file1; cat file3 file2 file1 [setup: printf '#include<unistd.h>\nint main(){write(1, "fd1\\n", 4);write(2, "fd2\\n", 4);write(3, "fd3\\n", 4);}' > a.c && gcc a.c]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+fd3
+fd2
+fd1
+# minishell: stderr
+scripts/helper.sh: line 130: 69379 Done                    echo "$1; exit"
+     69380 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: ./a.out 1> file1 2> file2 3> file3; cat file1 file2 file3 [setup: printf '#include<unistd.h>\nint main(){write(1, "fd1\\n", 4);write(2, "fd2\\n", 4);write(3, "fd3\\n", 4);}' > a.c && gcc a.c]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+fd1
+fd2
+fd3
+# minishell: stderr
+scripts/helper.sh: line 130: 69417 Done                    echo "$1; exit"
+     69418 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo a 1> 1.txt 2> 2.txt 3> 3.txt; ./a.out 1>> 1.txt 2>> 2.txt 3>> 3.txt; cat 1.txt 2.txt 3.txt [setup: printf '#include<unistd.h>\nint main(){write(1, "fd1\\n", 4);write(2, "fd2\\n", 4);write(3, "fd3\\n", 4);}' > a.c && gcc a.c]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+a
+fd1
+fd2
+fd3
+# minishell: stderr
+scripts/helper.sh: line 130: 69455 Done                    echo "$1; exit"
+     69456 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo a 3> 3.txt 2> 2.txt 1> 1.txt 2> 2.txt 3> 3.txt; echo b 1>> 1.txt 2>> 2.txt 3>> 3.txt 2>> 2.txt 1>> 1.txt; ./a.out 1>> 1.txt 2>> 2.txt 3>> 3.txt 2>> 2.txt 1>> 1.txt; cat 1.txt 2.txt 3.txt [setup: printf '#include<unistd.h>\nint main(){write(1, "fd1\\n", 4);write(2, "fd2\\n", 4);write(3, "fd3\\n", 4);}' > a.c && gcc a.c]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+a
+b
+fd1
+fd2
+fd3
+# minishell: stderr
+scripts/helper.sh: line 130: 69493 Done                    echo "$1; exit"
+     69494 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo a > f; echo b >> f; cat f f f >> ff; cat ff ff >> f; cat f
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+a
+b
+a
+b
+a
+b
+a
+b
+a
+b
+a
+b
+a
+b
+# minishell: stderr
+scripts/helper.sh: line 130: 69526 Done                    echo "$1; exit"
+     69527 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: ls>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f>f;cat f
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+f
+# minishell: stderr
+scripts/helper.sh: line 130: 69556 Done                    echo "$1; exit"
+     69557 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: ls>a>b>c>d>e>f>g>h>i>j>k>l>m>n>o>p>q>r>s>t>u>v>w>x>y>z>A>B>C>D>E>F>G>H>I>J>K>L>M>N>O>P>Q>R>S>T>U>V>W>X>Y>Z>aa>ab>ac>ad>ae>af>ag>ah>ai>aj>ak>al>am>an>ao>ap>aq>ar>as>at>au>av>aw>ax>ay>az>aA>aB>aC>aD>aE>aF>aG>aH>aI>aJ>aK>aL>aM>aN>aO>aP>aQ>aR>aS>aT>aU>aV;ls
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+a
+aa
+ab
+ac
+ad
+ae
+af
+ag
+ah
+ai
+aj
+ak
+al
+am
+an
+ao
+ap
+aq
+ar
+as
+at
+au
+av
+aw
+ax
+ay
+az
+b
+c
+d
+e
+f
+g
+h
+i
+j
+k
+l
+m
+n
+o
+p
+q
+r
+s
+t
+u
+v
+w
+x
+y
+z
+# minishell: stderr
+scripts/helper.sh: line 130: 69586 Done                    echo "$1; exit"
+     69587 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo $SHLVL [setup: export SHLVL=0]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+1
+# minishell: stderr
+scripts/helper.sh: line 130: 69615 Done                    echo "$1; exit"
+     69616 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo $SHLVL [setup: export SHLVL=998]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+999
+# minishell: stderr
+scripts/helper.sh: line 130: 69645 Done                    echo "$1; exit"
+     69646 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo $SHLVL [setup: export SHLVL=999]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+
+# minishell: stderr
+scripts/helper.sh: line 130: 69675 Done                    echo "$1; exit"
+     69676 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo $SHLVL [setup: export SHLVL=1000]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+1
+# minishell: stderr
+scripts/helper.sh: line 130: 69706 Done                    echo "$1; exit"
+     69707 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: warning: shell level (1001) too high, resetting to 1
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo $SHLVL [setup: export SHLVL=+42]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+43
+# minishell: stderr
+scripts/helper.sh: line 130: 69736 Done                    echo "$1; exit"
+     69737 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo $SHLVL [setup: export SHLVL=-1]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+0
+# minishell: stderr
+scripts/helper.sh: line 130: 69766 Done                    echo "$1; exit"
+     69767 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo $SHLVL [setup: export SHLVL=4294967295]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+0
+# minishell: stderr
+scripts/helper.sh: line 130: 69796 Done                    echo "$1; exit"
+     69797 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo $SHLVL [setup: export SHLVL=4294967296]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+1
+# minishell: stderr
+scripts/helper.sh: line 130: 69832 Done                    echo "$1; exit"
+     69833 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo $SHLVL [setup: export SHLVL=-4294967296]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+1
+# minishell: stderr
+scripts/helper.sh: line 130: 69862 Done                    echo "$1; exit"
+     69863 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo $SHLVL [setup: export SHLVL=-4294967297]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+0
+# minishell: stderr
+scripts/helper.sh: line 130: 69892 Done                    echo "$1; exit"
+     69893 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo $SHLVL [setup: export SHLVL=a]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+1
+# minishell: stderr
+scripts/helper.sh: line 130: 69922 Done                    echo "$1; exit"
+     69923 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo $SHLVL [setup: export SHLVL=`printf "\t\n\v\f\r 42"`]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+43
+# minishell: stderr
+scripts/helper.sh: line 130: 69954 Done                    echo "$1; exit"
+     69955 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo $SHLVL [setup: export SHLVL=`printf " 42 "`]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+43
+# minishell: stderr
+scripts/helper.sh: line 130: 69986 Done                    echo "$1; exit"
+     69987 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo $SHLVL [setup: export SHLVL=`printf " 42\t"`]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+43
+# minishell: stderr
+scripts/helper.sh: line 130: 70018 Done                    echo "$1; exit"
+     70019 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo $SHLVL [setup: export SHLVL=`printf " 42\v"`]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+1
+# minishell: stderr
+scripts/helper.sh: line 130: 70050 Done                    echo "$1; exit"
+     70051 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo $SHLVL [setup: export SHLVL=`printf " 42\n"`]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+43
+# minishell: stderr
+scripts/helper.sh: line 130: 70082 Done                    echo "$1; exit"
+     70083 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo $SHLVL [setup: export SHLVL=`printf " 42\f"`]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+1
+# minishell: stderr
+scripts/helper.sh: line 130: 70114 Done                    echo "$1; exit"
+     70115 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo $SHLVL [setup: export SHLVL=`printf " 42\r"`]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+1
+# minishell: stderr
+scripts/helper.sh: line 130: 70146 Done                    echo "$1; exit"
+     70147 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: /bin/ls [setup: touch a .a]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+a
+# minishell: stderr
+scripts/helper.sh: line 130: 70180 Done                    echo "$1; exit"
+     70181 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: /bin/ls -a [setup: touch a .a]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+.
+..
+.a
+a
+# minishell: stderr
+scripts/helper.sh: line 130: 70213 Done                    echo "$1; exit"
+     70214 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: /bin/ls | /usr/bin/grep a [setup: touch aa ab ac]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+aa
+ab
+ac
+# minishell: stderr
+scripts/helper.sh: line 130: 70247 Done                    echo "$1; exit"
+     70248 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: /bin/ls | /usr/bin/grep a | /usr/bin/grep c [setup: touch aa ab ac]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+ac
+# minishell: stderr
+scripts/helper.sh: line 130: 70282 Done                    echo "$1; exit"
+     70283 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: ls [setup: touch a .a]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+a
+# minishell: stderr
+scripts/helper.sh: line 130: 70315 Done                    echo "$1; exit"
+     70316 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: ls -a [setup: touch a .a]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+.
+..
+.a
+a
+# minishell: stderr
+scripts/helper.sh: line 130: 70348 Done                    echo "$1; exit"
+     70349 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: ls | grep a [setup: touch aa ab ac]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+aa
+ab
+ac
+# minishell: stderr
+scripts/helper.sh: line 130: 70382 Done                    echo "$1; exit"
+     70383 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: ls | grep a | grep c [setup: touch aa ab ac]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+ac
+# minishell: stderr
+scripts/helper.sh: line 130: 70418 Done                    echo "$1; exit"
+     70419 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo hello world | cat
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+hello world
+# minishell: stderr
+scripts/helper.sh: line 130: 70450 Done                    echo "$1; exit"
+     70451 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: no_such_file
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 70479 Done                    echo "$1; exit"
+     70480 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: no_such_file: command not found
+# minishell: exit status = 139
+# bash     : exit status = 127
+---------------------------------
+[KO] case: ./no_such_file
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 70508 Done                    echo "$1; exit"
+     70509 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: ./no_such_file: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 127
+---------------------------------
+[KO] case: /bin/ls/no_such_file
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 70537 Done                    echo "$1; exit"
+     70538 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: /bin/ls/no_such_file: Not a directory
+# minishell: exit status = 139
+# bash     : exit status = 126
+---------------------------------
+[KO] case: /bin/no_such_dir/file
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 70568 Done                    echo "$1; exit"
+     70569 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: /bin/no_such_dir/file: No such file or directory
+# minishell: exit status = 139
+# bash     : exit status = 127
+---------------------------------
+[KO] case: perm [setup: touch perm; chmod 000 perm]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 70601 Done                    echo "$1; exit"
+     70602 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: perm: command not found
+# minishell: exit status = 139
+# bash     : exit status = 127
+---------------------------------
+[KO] case: ./perm [setup: touch perm; chmod 000 perm]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 70636 Done                    echo "$1; exit"
+     70637 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: ./perm: Permission denied
+# minishell: exit status = 139
+# bash     : exit status = 126
+---------------------------------
+[KO] case: perm [setup: touch perm; chmod 100 perm]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 70672 Done                    echo "$1; exit"
+     70673 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: perm: command not found
+# minishell: exit status = 139
+# bash     : exit status = 127
+---------------------------------
+[KO] case: ./perm [setup: touch perm; chmod 100 perm]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 70707 Done                    echo "$1; exit"
+     70708 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: ./perm: Permission denied
+# minishell: exit status = 139
+# bash     : exit status = 126
+---------------------------------
+[KO] case: perm [setup: touch perm; chmod 300 perm]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 70742 Done                    echo "$1; exit"
+     70743 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: perm: command not found
+# minishell: exit status = 139
+# bash     : exit status = 127
+---------------------------------
+[KO] case: ./perm [setup: touch perm; chmod 300 perm]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 70777 Done                    echo "$1; exit"
+     70778 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: ./perm: Permission denied
+# minishell: exit status = 139
+# bash     : exit status = 126
+---------------------------------
+[KO] case: perm [setup: touch perm; chmod 500 perm]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 70812 Done                    echo "$1; exit"
+     70813 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: perm: command not found
+# minishell: exit status = 139
+# bash     : exit status = 127
+---------------------------------
+[KO] case: ./perm [setup: touch perm; chmod 500 perm]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 70847 Done                    echo "$1; exit"
+     70848 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: ./empty [setup: touch empty; chmod +x empty]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 70882 Done                    echo "$1; exit"
+     70883 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: dir [setup: mkdir dir]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 70915 Done                    echo "$1; exit"
+     70916 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: dir: command not found
+# minishell: exit status = 139
+# bash     : exit status = 127
+---------------------------------
+[KO] case: ./dir [setup: mkdir dir]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 70948 Done                    echo "$1; exit"
+     70949 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: ./dir: is a directory
+# minishell: exit status = 139
+# bash     : exit status = 126
+---------------------------------
+[KO] case: ./exe [setup: printf "#!/bin/bash\necho 42" > exe; chmod +x exe; ln -s exe sym; chmod -h -x sym]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+42
+# minishell: stderr
+scripts/helper.sh: line 130: 70985 Done                    echo "$1; exit"
+     70986 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: echo a | $NO_ENV | cat [setup: unset NO_ENV]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 71018 Done                    echo "$1; exit"
+     71019 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: ;
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 71049 Done                    echo "$1; exit"
+     71050 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: syntax error near unexpected token `;;'
+# minishell: exit status = 139
+# bash     : exit status = 2
+---------------------------------
+[KO] case: ;;
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 71077 Done                    echo "$1; exit"
+     71078 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: syntax error near unexpected token `;;'
+# minishell: exit status = 139
+# bash     : exit status = 2
+---------------------------------
+[KO] case: ;;;
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 71105 Done                    echo "$1; exit"
+     71106 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: syntax error near unexpected token `;;'
+# minishell: exit status = 139
+# bash     : exit status = 2
+---------------------------------
+[KO] case: ; ;
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 71134 Done                    echo "$1; exit"
+     71135 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: syntax error near unexpected token `;'
+# minishell: exit status = 139
+# bash     : exit status = 2
+---------------------------------
+[KO] case: |
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 71162 Done                    echo "$1; exit"
+     71163 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: syntax error near unexpected token `|'
+# minishell: exit status = 139
+# bash     : exit status = 2
+---------------------------------
+[KO] case: | |
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 71190 Done                    echo "$1; exit"
+     71191 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: syntax error near unexpected token `|'
+# minishell: exit status = 139
+# bash     : exit status = 2
+---------------------------------
+[KO] case: >
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 71218 Done                    echo "$1; exit"
+     71219 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: syntax error near unexpected token `;'
+# minishell: exit status = 139
+# bash     : exit status = 2
+---------------------------------
+[KO] case: >>
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 71246 Done                    echo "$1; exit"
+     71247 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: syntax error near unexpected token `;'
+# minishell: exit status = 139
+# bash     : exit status = 2
+---------------------------------
+[KO] case: >>>
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 71274 Done                    echo "$1; exit"
+     71275 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: syntax error near unexpected token `>'
+# minishell: exit status = 139
+# bash     : exit status = 2
+---------------------------------
+[KO] case: >>>>
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 71302 Done                    echo "$1; exit"
+     71303 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: syntax error near unexpected token `>>'
+# minishell: exit status = 139
+# bash     : exit status = 2
+---------------------------------
+[KO] case: <
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 71330 Done                    echo "$1; exit"
+     71331 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: syntax error near unexpected token `;'
+# minishell: exit status = 139
+# bash     : exit status = 2
+---------------------------------
+[KO] case: < >
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 71358 Done                    echo "$1; exit"
+     71359 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: syntax error near unexpected token `>'
+# minishell: exit status = 139
+# bash     : exit status = 2
+---------------------------------
+[KO] case: | echo
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 71386 Done                    echo "$1; exit"
+     71387 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: syntax error near unexpected token `|'
+# minishell: exit status = 139
+# bash     : exit status = 2
+---------------------------------
+[KO] case: echo | |
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 71414 Done                    echo "$1; exit"
+     71415 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: syntax error near unexpected token `|'
+# minishell: exit status = 139
+# bash     : exit status = 2
+---------------------------------
+[KO] case: cat < >
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 71442 Done                    echo "$1; exit"
+     71443 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: syntax error near unexpected token `>'
+# minishell: exit status = 139
+# bash     : exit status = 2
+---------------------------------
+[KO] case: echo '
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 71470 Done                    echo "$1; exit"
+     71471 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: unexpected EOF while looking for matching `''
+# minishell: exit status = 139
+# bash     : exit status = 2
+---------------------------------
+[KO] case: echo "
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 71498 Done                    echo "$1; exit"
+     71499 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: unexpected EOF while looking for matching `"'
+# minishell: exit status = 139
+# bash     : exit status = 2
+---------------------------------
+[KO] case: unset; env | grep -v -E '^_=' | sort
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+A=hello
+ANDROID_SDK_HOME=/Users/mboukhal/Library/Android/sdk
+Apple_PubSub_Socket_Render=/private/tmp/com.apple.launchd.tknBkUQmr2/Render
+COLORTERM=truecolor
+COMMAND_MODE=unix2003
+CONDA_EXE=/goinfre/mboukhal/miniconda3/bin/conda
+CONDA_PYTHON_EXE=/goinfre/mboukhal/miniconda3/bin/python
+CONDA_SHLVL=0
+GIT_ASKPASS=/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass.sh
+HOME=/Users/mboukhal
+HOMEBREW_CACHE=/tmp/mboukhal/Homebrew/Caches
+HOMEBREW_TEMP=/tmp/mboukhal/Homebrew/Temp
+JAVA_HOME=/Applications/Android Studio.app/Contents/jre/Contents/Home
+LANG=en_US.UTF-8
+LESS=-R
+LOGNAME=mboukhal
+LSCOLORS=Gxfxcxdxbxegedabagacad
+ORIGINAL_XDG_CURRENT_DESKTOP=undefined
+PAGER=less
+PATH=/Users/mboukhal/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Users/mboukhal/.brew/bin:/goinfre/mboukhal/miniconda3/condabin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin:/Users/mboukhal/goinfre/Flutter/flutter/bin:/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:/Users/mboukhal/Library/Android/sdk/platform-tools:/Users/mboukhal/Library/Android/sdk/tools/bin
+PWD=/Users/mboukhal/Desktop/minishell/tester/test
+SECURITYSESSIONID=186a8
+SHELL=/bin/zsh
+SHLVL=1
+SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.n0qNfwqQ9k/Listeners
+TERM=xterm-256color
+TERM_PROGRAM=vscode
+TERM_PROGRAM_VERSION=1.67.2
+TMPDIR=/var/folders/zz/zyxvpxvq6csfxvn_n0000j7w00049z/T/
+USER=mboukhal
+VSCODE_GIT_ASKPASS_EXTRA_ARGS=--ms-enable-electron-run-as-node
+VSCODE_GIT_ASKPASS_MAIN=/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass-main.js
+VSCODE_GIT_ASKPASS_NODE=/Applications/Visual Studio Code.app/Contents/MacOS/Electron
+VSCODE_GIT_IPC_HANDLE=/var/folders/zz/zyxvpxvq6csfxvn_n0000j7w00049z/T/vscode-git-d7ae64e511.sock
+XPC_FLAGS=0x0
+XPC_SERVICE_NAME=0
+ZSH=/Users/mboukhal/.oh-my-zsh
+_CE_CONDA=
+_CE_M=
+__CF_USER_TEXT_ENCODING=0x113F:0x0:0x0
+# minishell: stderr
+scripts/helper.sh: line 130: 71530 Done                    echo "$1; exit"
+     71531 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: unset A; echo $A [setup: export A='test $A']
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+
+# minishell: stderr
+scripts/helper.sh: line 130: 71558 Done                    echo "$1; exit"
+     71559 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: unset _A1; echo $_A1 [setup: export _A1='test $_A1']
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+
+# minishell: stderr
+scripts/helper.sh: line 130: 71588 Done                    echo "$1; exit"
+     71589 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: unset A B C; echo $A$B$C$D [setup: export A=test B=multiple C=var D=hello]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+hello
+# minishell: stderr
+scripts/helper.sh: line 130: 71618 Done                    echo "$1; exit"
+     71619 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: unset A B =invalid C; echo $A$B$C$D [setup: export A=test B=multiple C=var D=hello]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+hello
+# minishell: stderr
+scripts/helper.sh: line 130: 71648 Done                    echo "$1; exit"
+     71649 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: unset: `=invalid': not a valid identifier
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: unset PWD; echo $PWD
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+
+# minishell: stderr
+scripts/helper.sh: line 130: 71678 Done                    echo "$1; exit"
+     71679 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: unset OLDPWD; echo $OLDPWD
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+
+# minishell: stderr
+scripts/helper.sh: line 130: 71706 Done                    echo "$1; exit"
+     71707 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: unset NO_SUCH_ENV; echo $?$NO_SUCH_ENV [setup: unset NO_SUCH_ENV]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+0
+# minishell: stderr
+scripts/helper.sh: line 130: 71734 Done                    echo "$1; exit"
+     71735 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: unset 1
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 71764 Done                    echo "$1; exit"
+     71765 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: unset: `1': not a valid identifier
+# minishell: exit status = 139
+# bash     : exit status = 1
+---------------------------------
+[KO] case: unset A=a; echo $A [setup: export A=a]
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+a
+# minishell: stderr
+scripts/helper.sh: line 130: 71792 Done                    echo "$1; exit"
+     71793 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: unset: `A=a': not a valid identifier
+# minishell: exit status = 139
+# bash     : exit status = 0
+---------------------------------
+[KO] case: unset ' \"$&`\n'
+---------------------------------
+# minishell: stdout
+# bash     : stdout
+# minishell: stderr
+scripts/helper.sh: line 130: 71823 Done                    echo "$1; exit"
+     71824 Segmentation fault: 11  | ${MINISHELL_PATH}
+# bash     : stderr
+minishell: unset: ` \"$&`\n': not a valid identifier
+# minishell: exit status = 139
+# bash     : exit status = 1

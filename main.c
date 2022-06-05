@@ -6,13 +6,13 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:02:31 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/04 16:31:50 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/05 10:39:13 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int    cheak_exit_val(char *cmd)
+static int    cheak_exit_val(char *cmd)
 {
     int i;
     char max[22];
@@ -55,10 +55,10 @@ int    cheak_exit_val(char *cmd)
         return (255);
 }
 
-int loop(char *cmd)
+static int loop(char *cmd, char **env)
 {
-    char **cmd_p;
-    int i = 0;
+    // char **cmd_p;
+    // int i = 0;
     // char s[100];
 
 
@@ -66,20 +66,21 @@ int loop(char *cmd)
     // ft_pwd();
     chdir(getenv("HOME"));
     // printf("%s\n", getcwd(s, 100));
+    // printf("|%d|\n", INT32_MAX);
 
     while (1)
     {
         cmd = readline(PROMPT);
         add_history(cmd);
-        // ft_exec(cmd);
-        cmd_p = pars(cmd);
+        ft_exec(cmd);
+        // cmd_p = pars(cmd);
         // ft_start(cmd);
-        if (cmd_p != NULL)
-        {
-            while (cmd_p[i])
-                free(cmd_p[i++]);
-            free(cmd_p);
-        }
+        // if (cmd_p != NULL)
+        // {
+        //     while (cmd_p[i])
+        //         free(cmd_p[i++]);
+        //     free(cmd_p);
+        // }
         if (!ft_strncmp(cmd, "history -c", 10))
             clear_history();
         if (!ft_strncmp(cmd, "exit", 4))
@@ -87,6 +88,8 @@ int loop(char *cmd)
             free(cmd);
             return (cheak_exit_val(&cmd[4]));
         }
+        if (!ft_strncmp(cmd, "env", 3))
+            ft_env(env);
         if (!ft_strncmp(cmd, "pwd", 3))
             ft_pwd();
         free(cmd);
@@ -94,14 +97,17 @@ int loop(char *cmd)
 }
 
 
-int main(void)
+int main(int ac, char **av, char **env)
 {
+    (void) ac;
+    (void) av;
     mini_t *mini;
     char *cmd = NULL;
 
     mini = malloc(sizeof(mini_t));
     if (!mini)
         return (EXIT_FAILURE);
+    
     // char *line;
     // int i;
     // DIR *dp;
@@ -142,5 +148,5 @@ int main(void)
     free(mini);
     // system("leaks minishell");
 
-    return (loop(cmd));
+    return (loop(cmd, env));
 }
