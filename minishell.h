@@ -6,7 +6,7 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:02:51 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/05 10:32:13 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/06 11:41:27 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,40 @@
 
 # define  PROMPT        "Minishell> "
 # define  BACKSLASH     "\\"
-# define  SIMICOLON     ";"
 # define  SINGLEQUOT    "'"
 # define  DOUBLEEQUOT   "\""
 # define  DOLLAR        "$"
-# define  SRINPUT       "<"
-# define  DINPUT        "<<"
-# define  SROUTPUT      ">"
-# define  DOUTPUT       ">>"
-# define  PIPE          "|"
+//      next operation
+# define  SIMICOLON     ";"     //  1
+# define  PIPE          "|"     //  2
+# define  SRINPUT       "<"     //  3
+# define  SROUTPUT      ">"     //  4
+# define  DINPUT        "<<"    //  5
+# define  DOUTPUT       ">>"    //  6
 
 typedef struct minishell
 {
     char *pwd;
 
 }   mini_t;
+
+/*
+    cmd:
+        line to execute;
+    next:
+        next operation to do;
+    last:
+        if not 0 ask for next "next_operation(cmd);"
+*/
+typedef struct pars
+{
+    char *cmd;
+    int next;
+    int last;
+
+}   pars_t;
+
+
 
 /*
     execution part:

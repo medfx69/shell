@@ -6,7 +6,7 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 11:34:43 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/04 16:32:56 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/06 11:30:54 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,33 +47,37 @@ static char *rm_space(char *s)
     return (s);
 }
 
-// static void ft_cots(char **c)
-// {
-    // int     i;
-    // int     j;
-    // int     cote[2];
+static void ft_cotslen(char **s)
+{
+    int i;
+    int j;
+    int dc;
+    int c;
 
-    // i = 0;
-    // cote[0] = 0;
-    // cote[1] = 0;
-    // while (c[i])
-    // {
-    //     j = 0;
-    //     while (c[i][j])
-    //     {
-    //         while (c[i][j] == DOUBLEEQUOT)
-    //         {
-    //             if (cote[1] == 0 && )
-    //                 cote[0]++;
-    //         }
-    //         j++;
-    //     }
-    //     i++;
-    // }
-    
-
-
-// }
+    j = 0;
+    dc = 0;
+    c = 0;
+    while (s[j])
+    {
+        i = 0;
+        while(s[j][i])
+        {
+            if (s[i] == DOUBLEEQUOT)
+                dc++;
+            if (s[i] == SINGLEQUOT)
+                c++;
+            i++;
+        }
+        if (!(dc % 2) || !(c % 2))
+        {
+            ft_putstr_fd(PROMPT, EXIT_FAILURE);
+            ft_putstr_fd(": syntax error: ", EXIT_FAILURE);
+            ft_putendl_fd(s, EXIT_FAILURE);
+            exit (5);
+        }
+        j++;
+    }
+}
 
 char    **pars(char *cmd)
 {
@@ -86,7 +90,7 @@ char    **pars(char *cmd)
     if (cmd_p == NULL)
         return (NULL);
     i = 0;
-    // ft_cots(cmd_p);
+    ft_cots(cmd_p);
     while (cmd_p[i])
     {
         cmd_p[i] = rm_space(cmd_p[i]);
