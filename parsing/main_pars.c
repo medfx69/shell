@@ -6,7 +6,7 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 11:34:43 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/08 12:57:31 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/08 13:11:26 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,21 +47,21 @@
 //     return (s);
 // }
 
-int len_c(char *s)
-{
-    int i;
-    int count;
+// int len_c(char *s)
+// {
+//     int i;
+//     int count;
 
-    i = 0;
-    count = 0;
-    while(s[i])
-    {
-        if (s[i] == SIMICOLON)
-            count++;
-        i++;
-    }
-    return (count);
-}
+//     i = 0;
+//     count = 0;
+//     while(s[i])
+//     {
+//         if (s[i] == SIMICOLON)
+//             count++;
+//         i++;
+//     }
+//     return (count);
+// }
 
 char *rm_space(char *s)
 {
@@ -91,16 +91,14 @@ static list_t *set_list(list_t *h, char *s, int *i, int *last, int op)
     int x;
 
     h->n  = 0;
+    x = 1;
     if (op  == (SROUTPUT * 3) || op  == (SRINPUT * 3))
     {
-        x = 2;
+        x = 0;
         (*i)++;
     }
     if (op)
-    {
-        x = 0;
         h->n  = op;
-    }
     // x = 2;
     
     rm_s = (char *)malloc(sizeof(char) * ((*i - *last) + (x + 1)));
