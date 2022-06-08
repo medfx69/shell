@@ -6,7 +6,7 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:02:51 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/06 11:41:27 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/08 13:00:51 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,23 +32,26 @@
 # include "utils/libft.h"
 
 # define  PROMPT        "Minishell> "
-# define  BACKSLASH     "\\"
-# define  SINGLEQUOT    "'"
-# define  DOUBLEEQUOT   "\""
-# define  DOLLAR        "$"
+# define  BACKSLASH     '\\'
+# define  SINGLEQUOT    '\''
+# define  DOUBLEEQUOT   '\"'
+# define  DOLLAR        '$'
 //      next operation
-# define  SIMICOLON     ";"     //  1
-# define  PIPE          "|"     //  2
-# define  SRINPUT       "<"     //  3
-# define  SROUTPUT      ">"     //  4
-# define  DINPUT        "<<"    //  5
-# define  DOUTPUT       ">>"    //  6
+# define  SIMICOLON     ';'     //  59
+# define  PIPE          '|'     //  124
+# define  SRINPUT       '<'     //  60
+# define  SROUTPUT      '>'     //  62
+# define  DINPUT        "<<"    //  180 = '<' * 3
+# define  DOUTPUT       ">>"    //  186 = '>' * 3 
+# define  SYNTAXERR     300
 
-typedef struct minishell
+
+typedef struct list
 {
-    char *pwd;
-
-}   mini_t;
+    char        *cmd;
+    int         n;
+    struct list *next;
+} list_t;
 
 /*
     cmd:
@@ -58,14 +61,6 @@ typedef struct minishell
     last:
         if not 0 ask for next "next_operation(cmd);"
 */
-typedef struct pars
-{
-    char *cmd;
-    int next;
-    int last;
-
-}   pars_t;
-
 
 
 /*
@@ -75,10 +70,12 @@ typedef struct pars
 */
 int     ft_exec(char *cmd);
 void    ft_start(char *cmd);
+list_t  *ft_split_pars(char *s);
 void    ft_cd(char *dir);
 void    ft_pwd(void);
-char    **pars(char *cmd);
+char    **pars_init(char *cmd);
 void    ft_env(char **env);
+char    *rm_space(char *s);
 void	end(void);
 
 #endif // !MINISHELL_H

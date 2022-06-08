@@ -6,7 +6,7 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:02:31 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/05 10:39:13 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/08 13:00:26 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ static int    cheak_exit_val(char *cmd)
 
 static int loop(char *cmd, char **env)
 {
+    return (0);
     // char **cmd_p;
     // int i = 0;
     // char s[100];
@@ -101,12 +102,6 @@ int main(int ac, char **av, char **env)
 {
     (void) ac;
     (void) av;
-    mini_t *mini;
-    char *cmd = NULL;
-
-    mini = malloc(sizeof(mini_t));
-    if (!mini)
-        return (EXIT_FAILURE);
     
     // char *line;
     // int i;
@@ -145,8 +140,31 @@ int main(int ac, char **av, char **env)
     // }
 
     // signal(SIGINT, read_line);
-    free(mini);
-    // system("leaks minishell");
 
+    list_t *list;
+    list_t *h;
+    char *s;
+    
+    char cmd[] = "   rd ; rf -t < sdf -dfg> kal | lk << dsdsf >> dsf ";
+    s = rm_space(cmd);
+    printf("|%s|\n\n\n", s);
+    list = ft_split_pars(s);
+    // printf("\n\n\n-----------------\n");
+    // printf("|%s|\n", line[1]);
+
+    h = list;
+    while(h->n)
+    {
+        printf("|%s| |%d|\n", h->cmd, h->n);
+        free(h->cmd);
+        h = h->next;
+    }
+    while (list->n)
+    {
+        free(list);
+        list = list->next;
+    }
+    free(s);
+    end();
     return (loop(cmd, env));
 }
