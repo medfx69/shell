@@ -6,7 +6,7 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 11:34:43 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/08 13:11:26 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/09 14:45:46 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,39 @@
 //     }
 //     return (count);
 // }
+
+list_t *pars_init(char *cmd)
+{
+    list_t *list;
+    char *s;
+
+    s = rm_space(cmd);
+    // printf("|%s|\n\n\n", s);
+    list = ft_split_pars(s);
+    free(s);
+    return (list);
+}
+
+void pars_end(list_t *list)
+{
+    list_t *h;
+
+    h = list;
+    while(h->n)
+    {
+        free(h->cmd);
+        h = h->next;
+    }
+    free(h->cmd);
+    h = list;
+    while (h->n)
+    {
+        h = h->next;
+        free(h);
+    }
+    free(h->next);
+    free(list);
+}
 
 char *rm_space(char *s)
 {

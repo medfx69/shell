@@ -6,7 +6,7 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:02:51 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/08 13:00:51 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/09 14:46:53 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,10 @@ typedef struct list
         if not 0 ask for next "next_operation(cmd);"
 */
 
+//-------------------------------------
+list_t *pars_init(char *cmd);
+void    pars_end(list_t *list);
+//-------------------------------------
 
 /*
     execution part:
@@ -73,7 +77,6 @@ void    ft_start(char *cmd);
 list_t  *ft_split_pars(char *s);
 void    ft_cd(char *dir);
 void    ft_pwd(void);
-char    **pars_init(char *cmd);
 void    ft_env(char **env);
 char    *rm_space(char *s);
 void	end(void);

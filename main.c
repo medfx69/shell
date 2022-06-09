@@ -6,7 +6,7 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:02:31 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/08 13:13:31 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/09 14:46:12 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,12 +143,9 @@ int main(int ac, char **av, char **env)
 
     list_t *list;
     list_t *h;
-    char *s;
     
     char cmd[] = "   rd ; rf -t < sdf -dfg> kal | lk << dsdsf >> dsf -l ";
-    s = rm_space(cmd);
-    printf("|%s|\n\n\n", s);
-    list = ft_split_pars(s);
+    list = pars_init(cmd);
     // printf("\n\n\n-----------------\n");
     // printf("|%s|\n", line[1]);
 
@@ -156,20 +153,11 @@ int main(int ac, char **av, char **env)
     while(h->n)
     {
         printf("|%s| |%d|\n", h->cmd, h->n);
-        free(h->cmd);
         h = h->next;
     }
     printf("|%s| |%d|\n", h->cmd, h->n);
-    free(h->cmd);
-    h = list;
-    while (h->n)
-    {
-        h = h->next;
-        free(h);
-    }
-    // free(list->next);
-    free(list);
-    free(s);
-    end();
+
+    pars_end(list);
+    // end();
     return (loop(cmd, env));
 }
