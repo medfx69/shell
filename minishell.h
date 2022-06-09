@@ -6,7 +6,7 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:02:51 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/09 14:46:53 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/09 14:50:13 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,9 @@ void    pars_end(list_t *list);
 */
 int     ft_exec(char *cmd);
 void    ft_start(char *cmd);
-list_t  *ft_split_pars(char *s);
 void    ft_cd(char *dir);
 void    ft_pwd(void);
 void    ft_env(char **env);
-char    *rm_space(char *s);
 void	end(void);
 
 #endif // !MINISHELL_H
