@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mait-aad <mait-aad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:02:31 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/03 12:08:46 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/04 12:04:03 by mait-aad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,20 +74,20 @@ int loop(char *cmd)
         {
             add_history(cmd);
             cmd_p = pars(cmd);
-            // ft_start(cmd);
+            // ft_exec(cmd_p);
             while (cmd_p[i])
                 free(cmd_p[i++]);
             free(cmd_p);
         }
-        if (!ft_strncmp(cmd, "history -c", 10))
-            clear_history();
-        if (!ft_strncmp(cmd, "exit", 4))
-        {
-            free(cmd);
-            return (cheak_exit_val(&cmd[4]));
-        }
-        if (!ft_strncmp(cmd, "pwd", 3))
-            ft_pwd();
+        // if (!ft_strncmp(cmd, "history -c", 10))
+        //     clear_history();
+        // if (!ft_strncmp(cmd, "exit", 4))
+        // {
+        //     free(cmd);
+        //     return (cheak_exit_val(&cmd[4]));
+        // }
+        // if (!ft_strncmp(cmd, "pwd", 3))
+        //     ft_pwd();
         free(cmd);
     }
 }

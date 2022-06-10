@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pwd.c                                           :+:      :+:    :+:   */
+/*   exi.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mait-aad <mait-aad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/03 11:15:17 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/03 11:23:15 by mboukhal         ###   ########.fr       */
+/*   Created: 2022/06/03 15:16:21 by mait-aad          #+#    #+#             */
+/*   Updated: 2022/06/10 12:23:10 by mait-aad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#ifndef EXI_H
+# define EXI_H
+# include "../minishell.h"
+# include "functions/func.h"
 
-void ft_pwd(void)
-{
-    char *tmp;
+void	ft_pwd(void);
 
-    tmp = getcwd(NULL, 0);
-    printf("%s\n", tmp);
-    free(tmp);
-}
+#endif
