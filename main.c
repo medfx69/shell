@@ -6,7 +6,7 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:02:31 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/09 14:46:12 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/10 12:14:33 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,10 @@ int main(int ac, char **av, char **env)
     list_t *list;
     list_t *h;
     
-    char cmd[] = "   rd ; rf -t < sdf -dfg> kal | lk << dsdsf >> dsf -l ";
+    char cmd[] = "   rd ;      rf -t < \"\"\"7777sdf\"\"\"    -dfg> kal | lk << dsdsf >> dsf -l ";
+    // char cmd[] = "    ls -a    \"dir\"    ;   cat \"\'\'\'file\'\"";
+
+    printf("\n\n|%s|\n\n\n", cmd);
     list = pars_init(cmd);
     // printf("\n\n\n-----------------\n");
     // printf("|%s|\n", line[1]);
@@ -155,7 +158,7 @@ int main(int ac, char **av, char **env)
         printf("|%s| |%d|\n", h->cmd, h->n);
         h = h->next;
     }
-    printf("|%s| |%d|\n", h->cmd, h->n);
+    printf("|%s| |%d|\n\n\n", h->cmd, h->n);
 
     pars_end(list);
     // end();

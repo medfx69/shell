@@ -6,7 +6,7 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:02:51 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/09 14:50:13 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/09 14:52:13 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ typedef struct list
     char        *cmd;
     int         n;
     struct list *next;
+    struct list *rev;
 } list_t;
 
 /*
@@ -62,16 +63,20 @@ typedef struct list
         if not 0 ask for next "next_operation(cmd);"
 */
 
-//-------------------------------------
+/*-------------------------------------*/
+//      parsing functions
+/*-------------------------------------*/
+
 list_t *pars_init(char *cmd);
 void    pars_end(list_t *list);
-//-------------------------------------
+/*-------------------------------------*/
 
 /*
     execution part:
         exec():
             resolvine exection "execve" "getenv"
 */
+
 int     ft_exec(char *cmd);
 void    ft_start(char *cmd);
 void    ft_cd(char *dir);
@@ -81,4 +86,4 @@ void	end(void);
 
 #endif // !MINISHELL_H
 
-//    ls -a    "dir"    ;   cat "file"   
+ //    ls -a    "dir"    ;   cat "file"  
