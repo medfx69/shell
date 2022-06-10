@@ -1,32 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   pars2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/04 11:45:54 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/06 18:01:36 by mboukhal         ###   ########.fr       */
+/*   Created: 2022/06/10 12:19:11 by mboukhal          #+#    #+#             */
+/*   Updated: 2022/06/10 12:19:22 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../minishell.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
-{
-	size_t	i;
-	size_t	j;
-	size_t	dl;
-	size_t	sl;
-
-	i = 0;
-	dl = ft_strlen(dst);
-	sl = ft_strlen(src);
-	if (dstsize == 0 || dstsize <= dl)
-		return (sl + dstsize);
-	j = dl;
-	while (src[i] && i < dstsize - dl - 1)
-		dst[j++] = src[i++];
-	dst[j] = '\0';
-	return (dl + sl);
-}

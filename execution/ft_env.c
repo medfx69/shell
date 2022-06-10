@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_env.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/04 11:45:54 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/06 18:01:36 by mboukhal         ###   ########.fr       */
+/*   Created: 2022/06/05 10:32:33 by mboukhal          #+#    #+#             */
+/*   Updated: 2022/06/05 10:38:57 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../minishell.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+void ft_env(char **env)
 {
-	size_t	i;
-	size_t	j;
-	size_t	dl;
-	size_t	sl;
+	int i;
 
 	i = 0;
-	dl = ft_strlen(dst);
-	sl = ft_strlen(src);
-	if (dstsize == 0 || dstsize <= dl)
-		return (sl + dstsize);
-	j = dl;
-	while (src[i] && i < dstsize - dl - 1)
-		dst[j++] = src[i++];
-	dst[j] = '\0';
-	return (dl + sl);
+	while (env[i])
+		printf("%s\n", env[i++]);
 }

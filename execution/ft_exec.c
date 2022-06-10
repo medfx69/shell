@@ -5,8 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mait-aad <mait-aad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
+<<<<<<< HEAD
 /*   Created: 2022/06/04 18:23:38 by mait-aad          #+#    #+#             */
 /*   Updated: 2022/06/07 12:01:02 by mait-aad         ###   ########.fr       */
+=======
+/*   Created: 2022/05/25 10:55:35 by mboukhal          #+#    #+#             */
+/*   Updated: 2022/06/05 10:30:59 by mboukhal         ###   ########.fr       */
+>>>>>>> 7f851571fc338ca28993697f67270db40ba02878
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +54,7 @@ static void	free_it(char **s)
 
 int	it_ecolse(char *s, char	*s2)
 {
+<<<<<<< HEAD
 	int	i;
 
 	i = -1;
@@ -109,4 +115,37 @@ int	ft_exec(char	**cmd, char	**env)
 	id = fork();
 	free_it(path_s);
 	return (0);
+=======
+    char    **path_s;
+    char    **cmd_s;
+    char    *line;
+    int     i;
+    int     pid;
+
+    i = -1;
+    cmd_s = ft_split(cmd, ' ');
+    path_s = ft_split(getenv("PATH"), ':');
+    while(path_s[++i])
+    {
+        line = ft_join_path(path_s[i], cmd_s[0]);
+        if (!access(line, X_OK))
+            break;
+        free(line);
+    }
+    if (!path_s[i])
+    {
+        ft_putstr_fd("minishell: command not found: ", 2);
+        ft_putendl_fd(cmd_s[0], 2);
+        free_it(path_s, cmd_s, line);
+        return (127);
+    }
+    pid = fork();
+    if (pid < 0)
+        return (EXIT_FAILURE);
+    if (pid == 0)
+        execve(line, cmd_s, NULL);
+    waitpid(pid, NULL, 0);
+    free_it(path_s, cmd_s, line);
+    return (EXIT_SUCCESS);
+>>>>>>> 7f851571fc338ca28993697f67270db40ba02878
 }

@@ -6,19 +6,23 @@
 /*   By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 11:34:43 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/03 10:18:18 by mboukhal         ###   ########.fr       */
+/*   Updated: 2022/06/10 12:22:25 by mboukhal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-char    **pars(char *cmd)
+void rm_dup_qout(char *s)
 {
-    char **cmd_p;
+    int i;
+    int index;
+    int count;
 
-    cmd_p = ft_split(cmd, ';');
-
-    
-
-    return cmd_p;
+    index = 0;
+    count = 0;
+    i = -1;
+    while (s[++i])
+    {
+        if ()
+    }
 }

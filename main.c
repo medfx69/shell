@@ -6,13 +6,17 @@
 /*   By: mait-aad <mait-aad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:02:31 by mboukhal          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2022/06/04 12:04:03 by mait-aad         ###   ########.fr       */
+=======
+/*   Updated: 2022/06/10 12:14:33 by mboukhal         ###   ########.fr       */
+>>>>>>> 7f851571fc338ca28993697f67270db40ba02878
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int    cheak_exit_val(char *cmd)
+static int    cheak_exit_val(char *cmd)
 {
     int i;
     char max[22];
@@ -55,10 +59,11 @@ int    cheak_exit_val(char *cmd)
         return (255);
 }
 
-int loop(char *cmd)
+static int loop(char *cmd, char **env)
 {
-    char **cmd_p;
-    int i = 0;
+    return (0);
+    // char **cmd_p;
+    // int i = 0;
     // char s[100];
 
 
@@ -66,10 +71,12 @@ int loop(char *cmd)
     // ft_pwd();
     chdir(getenv("HOME"));
     // printf("%s\n", getcwd(s, 100));
+    // printf("|%d|\n", INT32_MAX);
 
     while (1)
     {
         cmd = readline(PROMPT);
+<<<<<<< HEAD
         if (cmd[0])
         {
             add_history(cmd);
@@ -88,19 +95,39 @@ int loop(char *cmd)
         // }
         // if (!ft_strncmp(cmd, "pwd", 3))
         //     ft_pwd();
+=======
+        add_history(cmd);
+        ft_exec(cmd);
+        // cmd_p = pars(cmd);
+        // ft_start(cmd);
+        // if (cmd_p != NULL)
+        // {
+        //     while (cmd_p[i])
+        //         free(cmd_p[i++]);
+        //     free(cmd_p);
+        // }
+        if (!ft_strncmp(cmd, "history -c", 10))
+            clear_history();
+        if (!ft_strncmp(cmd, "exit", 4))
+        {
+            free(cmd);
+            return (cheak_exit_val(&cmd[4]));
+        }
+        if (!ft_strncmp(cmd, "env", 3))
+            ft_env(env);
+        if (!ft_strncmp(cmd, "pwd", 3))
+            ft_pwd();
+>>>>>>> 7f851571fc338ca28993697f67270db40ba02878
         free(cmd);
     }
 }
 
 
-int main(void)
+int main(int ac, char **av, char **env)
 {
-    mini_t *mini;
-    char *cmd = NULL;
-
-    mini = malloc(sizeof(mini_t));
-    if (!mini)
-        return (EXIT_FAILURE);
+    (void) ac;
+    (void) av;
+    
     // char *line;
     // int i;
     // DIR *dp;
@@ -138,8 +165,27 @@ int main(void)
     // }
 
     // signal(SIGINT, read_line);
-    free(mini);
-    // system("leaks minishell");
 
-    return (loop(cmd));
+    list_t *list;
+    list_t *h;
+    
+    char cmd[] = "   rd ;      rf -t < \"\"\"7777sdf\"\"\"    -dfg> kal | lk << dsdsf >> dsf -l ";
+    // char cmd[] = "    ls -a    \"dir\"    ;   cat \"\'\'\'file\'\"";
+
+    printf("\n\n|%s|\n\n\n", cmd);
+    list = pars_init(cmd);
+    // printf("\n\n\n-----------------\n");
+    // printf("|%s|\n", line[1]);
+
+    h = list;
+    while(h->n)
+    {
+        printf("|%s| |%d|\n", h->cmd, h->n);
+        h = h->next;
+    }
+    printf("|%s| |%d|\n\n\n", h->cmd, h->n);
+
+    pars_end(list);
+    // end();
+    return (loop(cmd, env));
 }

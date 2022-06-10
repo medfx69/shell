@@ -6,17 +6,18 @@
 #    By: mboukhal <mboukhal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/24 17:01:37 by mboukhal          #+#    #+#              #
-#    Updated: 2022/06/03 11:34:39 by mboukhal         ###   ########.fr        #
+#    Updated: 2022/06/10 12:19:35 by mboukhal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .DEFAULT_GOAL		= all
 NAME				= minishell
-CFILES				= main.c ft_start.c execution/ft_cd.c execution/ft_exec.c	\
-					 parsing/main_pars.c execution/ft_pwd.c test.c
+CFILES				= main.c ft_start.c execution/ft_cd.c execution/ft_exec.c			\
+					 parsing/main_pars.c execution/ft_pwd.c test.c execution/ft_env.c 	\
+					 parsing/pars1.c parsing/pars2.c
 
-CFLAGS				= -Wall -Wextra -Werror
-FSANI				= -g -fsanitize=address ; echo "\t$(GREEN)fsanitize active$(NC)"
+CFLAGS				= -Wall -Wextra -Werror -g
+FSANI				= -fsanitize=address ; echo "\t$(GREEN)fsanitize active$(NC)"
 INCLUDE				=  -lreadline utils/ulib.a #-std=gnu11 
 
 OBJS				= $(CFILES:.c=.o)

@@ -7,7 +7,11 @@ FSANI			= -g -fsanitize=address ; echo "\t$(GREEN)fsanitize active$(NC)"
 
 CFILES			= ft_split.c ft_strlen.c ft_strncmp.c ft_putstr_fd.c 	\
 				 ft_putchar_fd.c ft_putendl_fd.c ft_atoi.c ft_strlcat.c \
+<<<<<<< HEAD
 				 ft_substr.c
+=======
+				 ft_strlcpy.c
+>>>>>>> 7f851571fc338ca28993697f67270db40ba02878
 
 
 PRINT			= 0
@@ -54,10 +58,10 @@ endif
 re: fclean all
 
 .c.o:
-	@ $(CC) $(CFLAGS) -c $< 
+	@ $(CC) $(CFLAGS) -c $< #### $(FSANI)
 
 $(NAME):$(OBJS)
-	@ $(AR) rc $(NAME) $(OBJS) ######## $(FSANI)
+	@ $(AR) rc $(NAME) $(OBJS) 
 ifeq ($(PRINT), 1)
 	@ echo "$(YELLOW) ######### $(NAME) START ######## $(NCL)"
 	@ $(ECHO_ALL)
