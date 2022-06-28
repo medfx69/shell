@@ -1,50 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pwd.c                                           :+:      :+:    :+:   */
+/*   add_and_or_create_to_afile.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mait-aad <mait-aad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/03 11:15:17 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/28 15:55:18 by mait-aad         ###   ########.fr       */
+/*   Created: 2022/06/24 16:31:02 by mait-aad          #+#    #+#             */
+/*   Updated: 2022/06/24 17:04:04 by mait-aad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "func.h"
 
-static int	is_eqoul(char	*s1, char	*s2)
+char	*add_to_a_file(char	*in, char	file)
 {
-	int	i;
-	int	j;
+	int		i;
+	char	*out;
 
-	i = 0;
-	j = 0;
-	while(s2[i])
+	if (access(file, W_OK | F_OK) == -1)
 	{
-		if (s2[i] == s1[j])
-			j++;
-		else
-			return (0);
-		i++;
+		out = ft_strjoin("bash: ", file);
+		return (ft_strjoin(out , ": Permission denied"));
 	}
-	return (1);
+	i = open(file, O_RDWR);
+	write (i, in, ft_strlen(in));
 }
 
-char	*ft_pwd(void)
+char	*create_and_to_a_file(char	*in, char	file)
 {
-	char	*tmp;
 	int		i;
+	char	*out;
 
-	tmp = getcwd(NULL, 0)
-	if (tmp == NULL)
-	{
-		i = -1;
-		while (env[++i])
-		{
-			if (is_eqoul(env[i], "PWD") == 1)
-				break ;
-		}
-		return (env[1]);
-	}
-	return (tmp);
+	i = open(file, O_CREAT | O_RDWR);
+	write (i, in, ft_strlen(in));
+	return (in);
 }

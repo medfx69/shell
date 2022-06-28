@@ -1,50 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pwd.c                                           :+:      :+:    :+:   */
+/*   export.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mait-aad <mait-aad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/03 11:15:17 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/28 15:55:18 by mait-aad         ###   ########.fr       */
+/*   Created: 2022/06/24 23:42:32 by mait-aad          #+#    #+#             */
+/*   Updated: 2022/06/28 15:53:46 by mait-aad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "func.h"
 
-static int	is_eqoul(char	*s1, char	*s2)
+t_data	*export(char **in, t_data *head, int ac)
 {
-	int	i;
-	int	j;
+	int		i;
+	t_data	*tmp;
 
 	i = 0;
-	j = 0;
-	while(s2[i])
+	head = (t_data *)malloc(sizeof(t_data));
+	tmp = head;
+	while (env[i])
 	{
-		if (s2[i] == s1[j])
-			j++;
-		else
-			return (0);
+		tmp->vars = ft_split(env[i], '=');
+		tmp->key = tmp->vars[0];
+		tmp->val = tmp->vars[1];
+		next(tmp);
+		tmp = next(tmp);
 		i++;
 	}
-	return (1);
-}
-
-char	*ft_pwd(void)
-{
-	char	*tmp;
-	int		i;
-
-	tmp = getcwd(NULL, 0)
-	if (tmp == NULL)
-	{
-		i = -1;
-		while (env[++i])
-		{
-			if (is_eqoul(env[i], "PWD") == 1)
-				break ;
-		}
-		return (env[1]);
-	}
-	return (tmp);
+	return (head);
 }

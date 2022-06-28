@@ -1,5 +1,16 @@
-#include "exi.h"
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mait-aad <mait-aad@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/11 19:31:14 by mait-aad          #+#    #+#             */
+/*   Updated: 2022/06/26 06:33:42 by mait-aad         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../minishell.h"
 
 int	hidin(char	*s1, char	*s2)
 {
@@ -18,7 +29,7 @@ int	hidin(char	*s1, char	*s2)
 		}
 		i++;
 	}
-	if (s1[j] == NULL)
+	if (s1[j] == '\0')
 		return (-1);
 	return(0);
 }
@@ -32,13 +43,12 @@ int main(int ac, char **av, char	**envp)
 	i =0;
 	while (envp[i])
 	{
-		if (hidin("PATH",envp[i]) == -1);
+		if (hidin("PATH",envp[i]) == -1)
 			break;
 		i++;
 	}
 	j = 0;
 	while (envp[i][j] != '=')
 		j++;
-	phats = ft_splite(envp[i] + j + 1, ':');
-	
+	paths = ft_splite(envp[i] + j + 1, ':');
 }
