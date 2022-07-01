@@ -6,58 +6,71 @@
 /*   By: mait-aad <mait-aad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 18:23:38 by mait-aad          #+#    #+#             */
-/*   Updated: 2022/06/28 15:47:49 by mait-aad         ###   ########.fr       */
+/*   Updated: 2022/07/01 18:38:38 by mait-aad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "ft_exec.h"
 
-static void	free_it(char **s)
+// static void	free_it(char **s)
+// {
+// 	int	i;
+
+// 	i = -1;
+// 	while (s[++i])
+// 		free(s[i]);
+// 	free(s);
+// }
+
+static int	is_eqoul(char	*s1, char	*s2)
 {
 	int	i;
+	int	j;
 
-	i = -1;
-	while (s[++i])
-		free(s[i]);
-	free(s);
-}
-
-int	it_ecolse(char *s, char	*s2)
-{
-	int	i;
-
-	i = -1;
-	while (s[++i])
+	i = 0;
+	j = 0;
+	while(s1[i])
 	{
-		if (s2[i] != s[i])
-			return (-1);
+		if (s1[i] == s2[j])
+			j++;
+		else
+			return (0);
+		i++;
 	}
-	return (0);
+	return (1);
 }
 
 char	*ft_exec(char	**cmd)
 {
-	char	**path_s;
 	char	*output;
 	int		i;
 
-	path_s = ft_split(getenv("PATH"), ':');
-	if (it_ecolse(cmd[0], "echo") == 0)
-		 output = ft_echo(cmd +1, path_s);
-	else if (it_ecolse(cmd[0], "cd") == 0)
-		output = ft_cd(cmd +1, output);
-	else if (it_ecolse(cmd[0], "pwd") == 0)
-		output = ft_pwd(void);
-	else if (it_ecolse(cmd[0], "export") == 0)
-		output = ft_export(cmd +1, output);
-	else if (it_ecolse(cmd[0], "unset") == 0)
-		output = ft_unset(env, cmd [1]);
-	else if (it_ecolse(cmd[0], "env") == 0)
+	output = NULL;
+	if (is_eqoul(cmd[0], "echo") == 1)
+	{
+		if (is_eqoul(cmd[1], "-n") == 1)
+			output = ft_echo(cmd +2, 0);
+		else	
+			output = ft_echo(cmd +1, 1);
+	}
+	else if (is_eqoul(cmd[0], "cd") == 1)
+		output = ft_cd(cmd[1]);
+	else if (is_eqoul(cmd[0], "pwd") == 1)
+		output = ft_pwd();
+	else if (is_eqoul(cmd[0], "export") == 1)
+		output = ft_export(cmd +1);
+	else if (is_eqoul(cmd[0], "unset") == 1)
+		output = ft_unset(cmd[1]);
+	else if (is_eqoul(cmd[0], "env") == 1)
 	{
 		i = -1;
 		while (env[++i])
+		{
 			output = ft_strjoin (output, env[i]);
+			output = ft_strjoin (output, "\n");
+		}
 	}
-	else if (it_ecolse(cmd[0], "exit") == 0)
-		return (output);
+	else if (is_eqoul(cmd[0], "exit") == 1)
+		return (NULL);
+	return (output);
 }

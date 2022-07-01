@@ -1,44 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_env_var.c                                      :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mait-aad <mait-aad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/24 17:22:13 by mait-aad          #+#    #+#             */
-/*   Updated: 2022/07/01 19:05:26 by mait-aad         ###   ########.fr       */
+/*   Created: 2022/07/01 15:01:52 by mait-aad          #+#    #+#             */
+/*   Updated: 2022/07/01 18:28:20 by mait-aad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "func.h"
 
-// static void free_it(char **s)
-// {
-// 	// int i;
-
-// 	// i = -1;
-// 	// while (s[i])
-// 	// 	free(s[i]);
-// 	free(s);
-// }
-
-char **add(char *s2)
+char	*ft_strjoin(char	*s1, char	*s2)
 {
-	char **ptr;
+	char	*ptr;
+	int		j;
+	int		k;
 	int		i;
 
-	ptr = NULL;
-	i = -1;
-	while (env[++i]);
-	printf("hello\n");
-	ptr = (char **)malloc((i + 2) * sizeof(char *));
+	if (!s1 || !s2)
+		return (ft_strdup(s2));
+	j = ft_strlen(s2);
+	k = ft_strlen(s1);
+	ptr = malloc(k + j + 1);
 	if (!ptr)
 		return (NULL);
-	i = -1;
-	while(env[++i])
-		ptr[i] = env[i];
-	ptr[i++] = s2;
-	ptr[i] = NULL;
-	free(env);
+	i = 0;
+	j = 0;
+	while (s1[j])
+		ptr[i++] = s1[j++];
+	j = 0;
+	while (s2[j])
+		ptr[i++] = s2[j++];
+	ptr[i] = 0;
+	free(s1);
 	return (ptr);
 }

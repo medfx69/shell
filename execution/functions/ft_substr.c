@@ -1,54 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mod_env.c                                          :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mait-aad <mait-aad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/26 01:27:46 by mait-aad          #+#    #+#             */
-/*   Updated: 2022/07/01 16:57:02 by mait-aad         ###   ########.fr       */
+/*   Created: 2022/07/01 15:05:36 by mait-aad          #+#    #+#             */
+/*   Updated: 2022/07/01 17:04:52 by mait-aad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "func.h"
-int	is_eqoul(char	*s1, char	*s2)
+
+char	*ft_substr(char const *s, int start, int len)
 {
+	char	*ptr;
+	char	*str;
 	int	i;
 	int	j;
 
+	str = (char *)s;
+	if (!str)
+		return (NULL);
+	ptr = malloc(len + 1);
+	if (!ptr)
+		return (NULL);
 	i = 0;
 	j = 0;
-	while(s2[i])
+	while (str[j])
 	{
-		if (s2[i] == s1[j])
-			j++;
-		else
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-void	mod_env(char	**pwds)
-{
-	int	i;
-
-	i = -1;
-	while (env[++i])
-	{
-		if (is_eqoul(env[i], "PWD") == 1)
+		if (j >= start && i < len)
 		{
-			pwds[1] = ft_strjoin("PWD=", pwds[1]);
-			env[i] = pwds[1]; 
+				ptr[i] = str[j];
+				i++;
 		}
+		j++;
 	}
-	i = -1;
-	while (env[++i])
-	{
-		if (is_eqoul(env[i], "OLDPWD") == 1)
-		{
-			pwds[0] = ft_strjoin("OLDPWD=", pwds[0]);
-			env[i] = pwds[0];
-		}
-	}
+	ptr[i] = '\0';
+	return (ptr);
 }

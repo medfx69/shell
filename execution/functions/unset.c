@@ -6,13 +6,13 @@
 /*   By: mait-aad <mait-aad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 11:17:13 by mait-aad          #+#    #+#             */
-/*   Updated: 2022/06/28 13:20:39 by mait-aad         ###   ########.fr       */
+/*   Updated: 2022/07/01 18:08:37 by mait-aad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "func.h"
 
-char **add(char **s1, char *s2)
+char **add_un(char **s1, char *s2)
 {
 	char **ptr;
 	int		i;
@@ -26,4 +26,10 @@ char **add(char **s1, char *s2)
 	ptr[i++] = s2;
 	ptr[i] = NULL;
 	return (ptr);
+}
+
+char	*ft_unset(char	*para)
+{
+	printf("hello>>%s\n",para);
+	return (NULL);
 }

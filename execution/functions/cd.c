@@ -6,7 +6,7 @@
 /*   By: mait-aad <mait-aad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 15:47:42 by mait-aad          #+#    #+#             */
-/*   Updated: 2022/06/28 15:48:20 by mait-aad         ###   ########.fr       */
+/*   Updated: 2022/07/01 16:35:37 by mait-aad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ char	*ft_cd(char *dir)
 		i = chdir(dir);
 		if (i == -1)
 		{
-			out = ft_strjoion("cd: no such file or directory: ", dir);
+			out = ft_strjoin("cd: no such file or directory: ", dir);
 			return (out);
 		}
 	}
 	pwds[1] = getcwd(NULL, 0);
-	mod_env(pwds, env);
+	mod_env(pwds);
 	free(pwds[0]);
 	free(pwds[1]);
 	return (out);

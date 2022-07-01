@@ -6,7 +6,7 @@
 /*   By: mait-aad <mait-aad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 11:15:17 by mboukhal          #+#    #+#             */
-/*   Updated: 2022/06/28 15:55:18 by mait-aad         ###   ########.fr       */
+/*   Updated: 2022/07/01 14:25:41 by mait-aad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*ft_pwd(void)
 	char	*tmp;
 	int		i;
 
-	tmp = getcwd(NULL, 0)
+	tmp = getcwd(NULL, 0);
 	if (tmp == NULL)
 	{
 		i = -1;

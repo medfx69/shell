@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   echo.c                                             :+:      :+:    :+:   */
+/*   ft_exec.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mait-aad <mait-aad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/30 16:42:48 by mait-aad          #+#    #+#             */
-/*   Updated: 2022/07/01 16:56:23 by mait-aad         ###   ########.fr       */
+/*   Created: 2022/07/01 14:41:50 by mait-aad          #+#    #+#             */
+/*   Updated: 2022/07/01 16:39:13 by mait-aad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "func.h"
+#ifndef FT_EXEC_H
+# define FT_EXEC_H
+// #include "../minishell.h"
+# include "functions/func.h"
 
-char	*ft_echo(char	**inputs, int newlin)
-{
-	int	i;
-	char *out;
-
-	i = -1;
-	while (inputs[++i])
-		out = ft_strjoin(out, inputs[i]);
-	if (newlin == 0)
-		return (out);
-	else
-		return (ft_strjoin (out , "\n"));
-	return (NULL);
-}
+char	*ft_exec(char	**cmd);
+#endif

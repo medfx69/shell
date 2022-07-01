@@ -6,13 +6,23 @@
 /*   By: mait-aad <mait-aad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 16:31:02 by mait-aad          #+#    #+#             */
-/*   Updated: 2022/06/24 17:04:04 by mait-aad         ###   ########.fr       */
+/*   Updated: 2022/07/01 16:34:42 by mait-aad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "func.h"
 
-char	*add_to_a_file(char	*in, char	file)
+int	ft_strlen(char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i] != 0)
+		i++;
+	return (i);
+}
+
+char	*add_to_a_file(char	*in, char	*file)
 {
 	int		i;
 	char	*out;
@@ -24,12 +34,12 @@ char	*add_to_a_file(char	*in, char	file)
 	}
 	i = open(file, O_RDWR);
 	write (i, in, ft_strlen(in));
+	return (in);
 }
 
-char	*create_and_to_a_file(char	*in, char	file)
+char	*create_and_to_a_file(char	*in, char	*file)
 {
 	int		i;
-	char	*out;
 
 	i = open(file, O_CREAT | O_RDWR);
 	write (i, in, ft_strlen(in));
